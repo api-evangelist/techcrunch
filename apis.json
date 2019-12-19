@@ -1,0 +1,65 @@
+{
+    "name": "TechCrunch",
+    "description": "We cover the pulse of the tech industry. Home to Disrupt, TC Sessions, and the world renowned Startup Battlefield competition.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/127-techcrunch.jpg",
+    "tags": [
+        "financial",
+        "have api",
+        "tech blog"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/techcrunch\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "TechCrunch",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/127-techcrunch.jpg",
+            "humanURL": "https:\/\/techcrunch.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/techcrunch-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/feeds.feedburner.com\/TechCrunch\/"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/techcrunch.com\/"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/techcrunch"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/techcrunch"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/techcrunch"
+        },
+        {
+            "type": "Github",
+            "url": "http:\/\/github.com\/cubrilovic"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/techcrunch"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/techcrunch.com"
+        }
+    ]
+}
