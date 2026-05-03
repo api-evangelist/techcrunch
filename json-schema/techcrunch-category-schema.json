@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/techcrunch/main/json-schema/techcrunch-category-schema.json",
+  "title": "TechCrunch Category",
+  "description": "Represents a TechCrunch content category as returned by the WordPress REST API.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the category."
+    },
+    "count": {
+      "type": "integer",
+      "description": "Number of published posts in the category."
+    },
+    "description": {
+      "type": "string",
+      "description": "HTML description of the category."
+    },
+    "link": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the category archive page."
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the category."
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-safe identifier for the category."
+    },
+    "taxonomy": {
+      "type": "string",
+      "description": "WordPress taxonomy name.",
+      "example": "category"
+    },
+    "parent": {
+      "type": "integer",
+      "description": "ID of the parent category (0 for top-level categories)."
+    }
+  },
+  "required": ["id", "name", "slug"]
+}

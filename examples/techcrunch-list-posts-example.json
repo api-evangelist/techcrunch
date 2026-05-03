@@ -1,0 +1,75 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://techcrunch.com/wp-json/wp/v2/posts?per_page=3&categories=577&orderby=date&order=desc",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=UTF-8",
+      "X-WP-Total": "12483",
+      "X-WP-TotalPages": "4161"
+    },
+    "body": [
+      {
+        "id": 2891034,
+        "date": "2026-05-03T09:00:00",
+        "date_gmt": "2026-05-03T13:00:00",
+        "guid": {
+          "rendered": "https://techcrunch.com/?p=2891034"
+        },
+        "modified": "2026-05-03T09:05:00",
+        "slug": "ai-startup-funding-roundup-may-2026",
+        "status": "publish",
+        "type": "post",
+        "link": "https://techcrunch.com/2026/05/03/ai-startup-funding-roundup-may-2026/",
+        "title": {
+          "rendered": "AI Startup Funding Roundup: $2.1B raised across 12 deals in April 2026"
+        },
+        "excerpt": {
+          "rendered": "<p>April 2026 was another record month for AI startup funding, with enterprise AI, robotics, and foundation model companies leading the charge.</p>",
+          "protected": false
+        },
+        "author": 451,
+        "featured_media": 2891035,
+        "comment_status": "open",
+        "ping_status": "closed",
+        "sticky": false,
+        "format": "standard",
+        "categories": [577, 1289],
+        "tags": [2145, 3891, 4201]
+      },
+      {
+        "id": 2890987,
+        "date": "2026-05-02T15:30:00",
+        "date_gmt": "2026-05-02T19:30:00",
+        "guid": {
+          "rendered": "https://techcrunch.com/?p=2890987"
+        },
+        "modified": "2026-05-02T16:00:00",
+        "slug": "openai-gpt5-enterprise-launch",
+        "status": "publish",
+        "type": "post",
+        "link": "https://techcrunch.com/2026/05/02/openai-gpt5-enterprise-launch/",
+        "title": {
+          "rendered": "OpenAI launches GPT-5 Enterprise with advanced reasoning capabilities"
+        },
+        "excerpt": {
+          "rendered": "<p>OpenAI has officially launched GPT-5 Enterprise, targeting large organizations with complex reasoning and multi-modal capabilities.</p>",
+          "protected": false
+        },
+        "author": 238,
+        "featured_media": 2890988,
+        "comment_status": "open",
+        "ping_status": "closed",
+        "sticky": false,
+        "format": "standard",
+        "categories": [577, 2341],
+        "tags": [1045, 2145, 5678]
+      }
+    ]
+  }
+}

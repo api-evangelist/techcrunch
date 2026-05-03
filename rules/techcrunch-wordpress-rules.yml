@@ -1,0 +1,113 @@
+extends: spectral:oas
+rules:
+  # WordPress REST API conventions
+  wp-operationid-required:
+    description: All operations must have an operationId
+    message: "Missing operationId: {{path}}"
+    severity: error
+    given: "$.paths.*.*"
+    then:
+      field: operationId
+      function: truthy
+
+  wp-operationid-camel-case:
+    description: Operation IDs must use camelCase (WordPress REST API convention)
+    message: "Operation ID '{{value}}' must be camelCase: {{path}}"
+    severity: warn
+    given: "$.paths.*.*.operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]+$"
+
+  wp-get-operations-support-pagination:
+    description: List endpoints should support page and per_page query parameters
+    message: "List operation should support pagination parameters: {{path}}"
+    severity: warn
+    given: "$.paths[?(!@property.match(/\\/\\{id\\}$/))].get"
+    then:
+      field: parameters
+      function: truthy
+
+  wp-per-page-max-100:
+    description: per_page parameter should enforce a maximum of 100
+    message: "per_page parameter must have maximum: 100: {{path}}"
+    severity: warn
+    given: "$.paths.*.get.parameters[?(@.name == 'per_page')].schema"
+    then:
+      field: maximum
+      function: defined
+
+  wp-id-path-param-integer:
+    description: The {id} path parameter must be an integer
+    message: "Path parameter 'id' must be type integer: {{path}}"
+    severity: error
+    given: "$.paths[?(@property =~ /\\{id\\}/)].*.parameters[?(@.name == 'id')].schema"
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values:
+          - integer
+
+  wp-response-200-required:
+    description: All GET operations must have a 200 response defined
+    message: "GET operation missing 200 response: {{path}}"
+    severity: error
+    given: "$.paths.*.get"
+    then:
+      field: responses.200
+      function: truthy
+
+  wp-error-schema-on-4xx:
+    description: 4xx responses should use WPError schema
+    message: "4xx response should define error schema: {{path}}"
+    severity: warn
+    given: "$.paths.*.*.responses[?(@property >= '400' && @property < '500')]"
+    then:
+      field: content
+      function: truthy
+
+  wp-tags-on-operations:
+    description: All operations must be tagged for grouping
+    message: "Operation missing tags: {{path}}"
+    severity: error
+    given: "$.paths.*.*"
+    then:
+      field: tags
+      function: truthy
+
+  wp-description-on-operations:
+    description: All operations must have a description
+    message: "Operation missing description: {{path}}"
+    severity: warn
+    given: "$.paths.*.*"
+    then:
+      field: description
+      function: truthy
+
+  wp-no-auth-required:
+    description: TechCrunch WordPress REST API is read-only public - no auth required
+    message: "Public read operations should not require authentication: {{path}}"
+    severity: info
+    given: "$.paths.*.get"
+    then:
+      field: security
+      function: falsy
+
+  wp-search-requires-search-param:
+    description: The /search endpoint must have a required search parameter
+    message: "Search endpoint must have required search parameter: {{path}}"
+    severity: error
+    given: "$.paths['/search'].get.parameters[?(@.name == 'search')]"
+    then:
+      field: required
+      function: truthy
+
+  wp-rendered-content-schema:
+    description: Post/page content should use RenderedValue schema pattern
+    message: "Content fields should use RenderedValue schema: {{path}}"
+    severity: info
+    given: "$.components.schemas.Post.properties[?(@property =~ /^(title|content|excerpt|guid)$/)]"
+    then:
+      function: truthy

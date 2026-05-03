@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/techcrunch/main/json-schema/techcrunch-post-schema.json",
+  "title": "TechCrunch Post",
+  "description": "Represents a TechCrunch article or post as returned by the WordPress REST API.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the post."
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date the post was published in the site's timezone."
+    },
+    "date_gmt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date the post was published in GMT."
+    },
+    "guid": {
+      "$ref": "#/$defs/RenderedValue",
+      "description": "The globally unique identifier for the post."
+    },
+    "modified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date the post was last modified."
+    },
+    "modified_gmt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date the post was last modified in GMT."
+    },
+    "slug": {
+      "type": "string",
+      "description": "An alphanumeric identifier for the post unique to its type."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["publish", "future", "draft", "pending", "private"],
+      "description": "A named status for the post."
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of post.",
+      "example": "post"
+    },
+    "link": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the post."
+    },
+    "title": {
+      "$ref": "#/$defs/RenderedValue",
+      "description": "The title for the post."
+    },
+    "content": {
+      "$ref": "#/$defs/RenderedValueProtected",
+      "description": "The content for the post."
+    },
+    "excerpt": {
+      "$ref": "#/$defs/RenderedValueProtected",
+      "description": "The excerpt for the post."
+    },
+    "author": {
+      "type": "integer",
+      "description": "The ID for the author of the post."
+    },
+    "featured_media": {
+      "type": "integer",
+      "description": "The ID of the featured media for the post."
+    },
+    "comment_status": {
+      "type": "string",
+      "enum": ["open", "closed"],
+      "description": "Whether or not comments are open on the post."
+    },
+    "ping_status": {
+      "type": "string",
+      "enum": ["open", "closed"],
+      "description": "Whether or not the post can be pinged."
+    },
+    "sticky": {
+      "type": "boolean",
+      "description": "Whether or not the post should be treated as sticky."
+    },
+    "format": {
+      "type": "string",
+      "enum": ["standard", "aside", "chat", "gallery", "link", "image", "quote", "status", "video", "audio"],
+      "description": "The format for the post."
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "The terms assigned from the category taxonomy."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "description": "The terms assigned from the post_tag taxonomy."
+    }
+  },
+  "required": ["id", "date", "slug", "status", "title"],
+  "$defs": {
+    "RenderedValue": {
+      "type": "object",
+      "properties": {
+        "rendered": {
+          "type": "string",
+          "description": "HTML representation of the field value."
+        }
+      },
+      "required": ["rendered"]
+    },
+    "RenderedValueProtected": {
+      "type": "object",
+      "properties": {
+        "rendered": {
+          "type": "string",
+          "description": "HTML representation of the field value."
+        },
+        "protected": {
+          "type": "boolean",
+          "description": "Whether the value is password-protected."
+        }
+      },
+      "required": ["rendered"]
+    }
+  }
+}

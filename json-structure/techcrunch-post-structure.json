@@ -1,0 +1,49 @@
+{
+  "name": "TechCrunch Post",
+  "description": "Article/post structure from the TechCrunch WordPress REST API",
+  "fields": [
+    { "name": "id", "type": "integer", "required": true, "description": "Post ID" },
+    { "name": "date", "type": "string", "format": "date-time", "required": true, "description": "Publication date" },
+    { "name": "date_gmt", "type": "string", "format": "date-time", "required": false, "description": "Publication date in GMT" },
+    { "name": "slug", "type": "string", "required": true, "description": "URL slug" },
+    { "name": "status", "type": "string", "required": true, "description": "Post status (publish, draft, etc.)" },
+    { "name": "type", "type": "string", "required": false, "description": "Post type" },
+    { "name": "link", "type": "string", "format": "uri", "required": false, "description": "URL to post" },
+    {
+      "name": "title",
+      "type": "object",
+      "required": true,
+      "description": "Post title",
+      "fields": [
+        { "name": "rendered", "type": "string", "required": true, "description": "HTML title" }
+      ]
+    },
+    {
+      "name": "content",
+      "type": "object",
+      "required": false,
+      "description": "Post content",
+      "fields": [
+        { "name": "rendered", "type": "string", "required": true, "description": "HTML content" },
+        { "name": "protected", "type": "boolean", "required": false, "description": "Password protected" }
+      ]
+    },
+    {
+      "name": "excerpt",
+      "type": "object",
+      "required": false,
+      "description": "Post excerpt",
+      "fields": [
+        { "name": "rendered", "type": "string", "required": true, "description": "HTML excerpt" },
+        { "name": "protected", "type": "boolean", "required": false, "description": "Password protected" }
+      ]
+    },
+    { "name": "author", "type": "integer", "required": false, "description": "Author user ID" },
+    { "name": "featured_media", "type": "integer", "required": false, "description": "Featured image media ID" },
+    { "name": "categories", "type": "array", "required": false, "description": "Array of category IDs" },
+    { "name": "tags", "type": "array", "required": false, "description": "Array of tag IDs" },
+    { "name": "format", "type": "string", "required": false, "description": "Post format" },
+    { "name": "sticky", "type": "boolean", "required": false, "description": "Whether post is sticky" },
+    { "name": "modified", "type": "string", "format": "date-time", "required": false, "description": "Last modified date" }
+  ]
+}

@@ -1,0 +1,1033 @@
+openapi: 3.1.0
+info:
+  title: TechCrunch WordPress REST API
+  description: >-
+    TechCrunch is built on WordPress and exposes the standard WordPress REST API,
+    providing JSON endpoints for accessing posts, categories, tags, authors, pages,
+    and other content types. The API is available at the /wp-json/wp/v2/ base path
+    and supports filtering, pagination, searching, and sorting across all TechCrunch
+    content. TechCrunch uses a headless WordPress architecture with a React frontend,
+    making the REST API the primary data layer for content delivery.
+  version: v2
+  contact:
+    name: TechCrunch
+    url: https://techcrunch.com/contact-us/
+  license:
+    name: Terms of Service
+    url: https://techcrunch.com/terms-of-service/
+servers:
+  - url: https://techcrunch.com/wp-json/wp/v2
+    description: TechCrunch WordPress REST API
+tags:
+  - name: Posts
+    description: Article and post content
+  - name: Pages
+    description: Static page content
+  - name: Categories
+    description: Post category taxonomy
+  - name: Tags
+    description: Post tag taxonomy
+  - name: Authors
+    description: Author and contributor profiles
+  - name: Media
+    description: Media files and attachments
+  - name: Comments
+    description: Post comments
+  - name: Search
+    description: Full-text search across content
+paths:
+  /posts:
+    get:
+      operationId: listPosts
+      summary: List Posts
+      description: >-
+        Retrieve a paginated list of published posts from TechCrunch. Supports
+        filtering by author, category, tag, date range, and full-text search.
+      tags:
+        - Posts
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: Current page of the collection.
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+          description: Maximum number of items to be returned in result set.
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: Limit results to those matching a string.
+        - name: after
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: Limit response to posts published after a given ISO8601 date.
+        - name: before
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: Limit response to posts published before a given ISO8601 date.
+        - name: author
+          in: query
+          schema:
+            type: array
+            items:
+              type: integer
+          description: Limit result set to posts assigned to specific authors.
+        - name: categories
+          in: query
+          schema:
+            type: array
+            items:
+              type: integer
+          description: Limit result set to posts assigned to specific category IDs.
+        - name: tags
+          in: query
+          schema:
+            type: array
+            items:
+              type: integer
+          description: Limit result set to posts assigned to specific tag IDs.
+        - name: orderby
+          in: query
+          schema:
+            type: string
+            enum:
+              - author
+              - date
+              - id
+              - include
+              - modified
+              - parent
+              - relevance
+              - slug
+              - include_slugs
+              - title
+            default: date
+          description: Sort collection by object attribute.
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+          description: Order sort attribute ascending or descending.
+        - name: _fields
+          in: query
+          schema:
+            type: string
+          description: Limit response to specific fields. Separate multiple fields with commas.
+        - name: _embed
+          in: query
+          schema:
+            type: boolean
+          description: Embed linked resources in the response.
+      responses:
+        '200':
+          description: List of posts
+          headers:
+            X-WP-Total:
+              schema:
+                type: integer
+              description: Total number of posts.
+            X-WP-TotalPages:
+              schema:
+                type: integer
+              description: Total number of pages.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /posts/{id}:
+    get:
+      operationId: getPost
+      summary: Get Post
+      description: Retrieve a specific published post by its unique ID.
+      tags:
+        - Posts
+      parameters:
+        - $ref: '#/components/parameters/id'
+        - name: _fields
+          in: query
+          schema:
+            type: string
+          description: Limit response to specific fields.
+        - name: _embed
+          in: query
+          schema:
+            type: boolean
+          description: Embed linked resources.
+      responses:
+        '200':
+          description: Post object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /pages:
+    get:
+      operationId: listPages
+      summary: List Pages
+      description: Retrieve a list of published pages from TechCrunch.
+      tags:
+        - Pages
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: orderby
+          in: query
+          schema:
+            type: string
+            enum:
+              - author
+              - date
+              - id
+              - modified
+              - title
+              - slug
+            default: date
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+      responses:
+        '200':
+          description: List of pages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Page'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /pages/{id}:
+    get:
+      operationId: getPage
+      summary: Get Page
+      description: Retrieve a specific page by its unique ID.
+      tags:
+        - Pages
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Page object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /categories:
+    get:
+      operationId: listCategories
+      summary: List Categories
+      description: Retrieve a list of all categories used on TechCrunch.
+      tags:
+        - Categories
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: Limit results to matching a string.
+        - name: orderby
+          in: query
+          schema:
+            type: string
+            enum:
+              - id
+              - include
+              - name
+              - slug
+              - include_slugs
+              - term_group
+              - description
+              - count
+            default: name
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: asc
+        - name: hide_empty
+          in: query
+          schema:
+            type: boolean
+          description: Whether to hide terms not assigned to any posts.
+        - name: parent
+          in: query
+          schema:
+            type: integer
+          description: Limit result set to terms assigned to a given parent ID.
+      responses:
+        '200':
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+  /categories/{id}:
+    get:
+      operationId: getCategory
+      summary: Get Category
+      description: Retrieve a specific category by its unique ID.
+      tags:
+        - Categories
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Category object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /tags:
+    get:
+      operationId: listTags
+      summary: List Tags
+      description: Retrieve a list of all tags used on TechCrunch.
+      tags:
+        - Tags
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: orderby
+          in: query
+          schema:
+            type: string
+            enum:
+              - id
+              - include
+              - name
+              - slug
+              - term_group
+              - description
+              - count
+            default: name
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: asc
+        - name: hide_empty
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: List of tags
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+  /tags/{id}:
+    get:
+      operationId: getTag
+      summary: Get Tag
+      description: Retrieve a specific tag by its unique ID.
+      tags:
+        - Tags
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Tag object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Tag'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /users:
+    get:
+      operationId: listUsers
+      summary: List Authors
+      description: Retrieve a list of registered authors and contributors on TechCrunch.
+      tags:
+        - Authors
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: orderby
+          in: query
+          schema:
+            type: string
+            enum:
+              - id
+              - include
+              - name
+              - registered_date
+              - slug
+              - include_slugs
+              - email
+              - url
+            default: name
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: asc
+        - name: who
+          in: query
+          schema:
+            type: string
+            enum:
+              - authors
+          description: Limit result set to users who are considered authors.
+      responses:
+        '200':
+          description: List of authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Author'
+  /users/{id}:
+    get:
+      operationId: getUser
+      summary: Get Author
+      description: Retrieve a specific author by their unique ID.
+      tags:
+        - Authors
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Author object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /media:
+    get:
+      operationId: listMedia
+      summary: List Media
+      description: Retrieve a list of media items attached to TechCrunch posts.
+      tags:
+        - Media
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: media_type
+          in: query
+          schema:
+            type: string
+            enum:
+              - image
+              - video
+              - text
+              - application
+              - audio
+          description: Limit result set to attachments of a given media type.
+        - name: mime_type
+          in: query
+          schema:
+            type: string
+          description: Limit result set to attachments of a given MIME type.
+        - name: orderby
+          in: query
+          schema:
+            type: string
+            default: date
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+      responses:
+        '200':
+          description: List of media items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Media'
+  /media/{id}:
+    get:
+      operationId: getMedia
+      summary: Get Media Item
+      description: Retrieve a specific media item by its unique ID.
+      tags:
+        - Media
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Media item object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /comments:
+    get:
+      operationId: listComments
+      summary: List Comments
+      description: Retrieve a list of comments on TechCrunch posts.
+      tags:
+        - Comments
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: post
+          in: query
+          schema:
+            type: integer
+          description: Limit result set to comments assigned to a specific post.
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum:
+              - approved
+              - hold
+              - spam
+              - trash
+            default: approved
+        - name: orderby
+          in: query
+          schema:
+            type: string
+            enum:
+              - date
+              - date_gmt
+              - id
+              - include
+              - post
+              - parent
+              - type
+            default: date_gmt
+        - name: order
+          in: query
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+            default: desc
+      responses:
+        '200':
+          description: List of comments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+  /comments/{id}:
+    get:
+      operationId: getComment
+      summary: Get Comment
+      description: Retrieve a specific comment by its unique ID.
+      tags:
+        - Comments
+      parameters:
+        - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Comment object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /search:
+    get:
+      operationId: search
+      summary: Search Content
+      description: >-
+        Search across all TechCrunch content including posts, pages, and other
+        content types using full-text search.
+      tags:
+        - Search
+      parameters:
+        - name: search
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Limit results to those matching a string.
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: per_page
+          in: query
+          schema:
+            type: integer
+            default: 10
+            maximum: 100
+        - name: type
+          in: query
+          schema:
+            type: string
+            enum:
+              - post
+              - page
+              - category
+              - tag
+              - user
+            default: post
+          description: Limit result set to items of an object type.
+        - name: subtype
+          in: query
+          schema:
+            type: string
+          description: Limit result set to items with a given object subtype.
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SearchResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Unique identifier for the resource.
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WPError'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WPError'
+  schemas:
+    WPError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+    Post:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+          description: The date the post was published in the site's timezone.
+        date_gmt:
+          type: string
+          format: date-time
+          description: The date the post was published in GMT.
+        guid:
+          $ref: '#/components/schemas/RenderedValue'
+        modified:
+          type: string
+          format: date-time
+        modified_gmt:
+          type: string
+          format: date-time
+        slug:
+          type: string
+        status:
+          type: string
+          enum:
+            - publish
+            - future
+            - draft
+            - pending
+            - private
+        type:
+          type: string
+          example: post
+        link:
+          type: string
+          format: uri
+        title:
+          $ref: '#/components/schemas/RenderedValue'
+        content:
+          $ref: '#/components/schemas/RenderedValueWithProtected'
+        excerpt:
+          $ref: '#/components/schemas/RenderedValueWithProtected'
+        author:
+          type: integer
+          description: The ID for the author of the post.
+        featured_media:
+          type: integer
+          description: The ID of the featured media for the post.
+        comment_status:
+          type: string
+          enum:
+            - open
+            - closed
+        ping_status:
+          type: string
+          enum:
+            - open
+            - closed
+        sticky:
+          type: boolean
+        template:
+          type: string
+        format:
+          type: string
+          enum:
+            - standard
+            - aside
+            - chat
+            - gallery
+            - link
+            - image
+            - quote
+            - status
+            - video
+            - audio
+        categories:
+          type: array
+          items:
+            type: integer
+        tags:
+          type: array
+          items:
+            type: integer
+        yoast_head_json:
+          type: object
+          description: Yoast SEO metadata
+          additionalProperties: true
+    Page:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+        date_gmt:
+          type: string
+          format: date-time
+        guid:
+          $ref: '#/components/schemas/RenderedValue'
+        modified:
+          type: string
+          format: date-time
+        slug:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+          example: page
+        link:
+          type: string
+          format: uri
+        title:
+          $ref: '#/components/schemas/RenderedValue'
+        content:
+          $ref: '#/components/schemas/RenderedValueWithProtected'
+        excerpt:
+          $ref: '#/components/schemas/RenderedValueWithProtected'
+        author:
+          type: integer
+        featured_media:
+          type: integer
+        menu_order:
+          type: integer
+        template:
+          type: string
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        count:
+          type: integer
+          description: Number of published posts for the term.
+        description:
+          type: string
+        link:
+          type: string
+          format: uri
+        name:
+          type: string
+        slug:
+          type: string
+        taxonomy:
+          type: string
+          example: category
+        parent:
+          type: integer
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+        count:
+          type: integer
+        description:
+          type: string
+        link:
+          type: string
+          format: uri
+        name:
+          type: string
+        slug:
+          type: string
+        taxonomy:
+          type: string
+          example: post_tag
+    Author:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        description:
+          type: string
+        link:
+          type: string
+          format: uri
+        slug:
+          type: string
+        avatar_urls:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+    Media:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+        slug:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+          example: attachment
+        link:
+          type: string
+          format: uri
+        title:
+          $ref: '#/components/schemas/RenderedValue'
+        author:
+          type: integer
+        caption:
+          $ref: '#/components/schemas/RenderedValue'
+        alt_text:
+          type: string
+        media_type:
+          type: string
+          enum:
+            - image
+            - file
+        mime_type:
+          type: string
+        media_details:
+          type: object
+          additionalProperties: true
+        source_url:
+          type: string
+          format: uri
+    Comment:
+      type: object
+      properties:
+        id:
+          type: integer
+        post:
+          type: integer
+        parent:
+          type: integer
+        author:
+          type: integer
+        author_name:
+          type: string
+        author_url:
+          type: string
+          format: uri
+        date:
+          type: string
+          format: date-time
+        date_gmt:
+          type: string
+          format: date-time
+        content:
+          $ref: '#/components/schemas/RenderedValue'
+        link:
+          type: string
+          format: uri
+        status:
+          type: string
+        type:
+          type: string
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        type:
+          type: string
+        subtype:
+          type: string
+        _links:
+          type: object
+          additionalProperties: true
+    RenderedValue:
+      type: object
+      properties:
+        rendered:
+          type: string
+    RenderedValueWithProtected:
+      type: object
+      properties:
+        rendered:
+          type: string
+        protected:
+          type: boolean

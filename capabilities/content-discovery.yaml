@@ -1,0 +1,259 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "TechCrunch Content Discovery"
+  description: >-
+    Unified content discovery workflow for TechCrunch. Combines article retrieval,
+    category and tag browsing, author profiles, media access, and full-text search
+    through the WordPress REST API. Designed for developers building news aggregators,
+    content analytics tools, media monitoring applications, and AI-powered research
+    assistants that need to access TechCrunch's technology news content.
+  tags:
+    - Content
+    - Media
+    - News
+    - RSS
+    - Startups
+    - Technology News
+    - Venture Capital
+    - WordPress
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+capability:
+  consumes:
+    - import: techcrunch-wp
+      location: ./shared/wordpress-rest-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: content-discovery-api
+      description: "Unified REST API for TechCrunch content discovery and retrieval."
+      resources:
+        - path: /v1/posts
+          name: posts
+          description: "TechCrunch technology news articles"
+          operations:
+            - method: GET
+              name: list-posts
+              description: "List TechCrunch articles with filtering and pagination"
+              call: "techcrunch-wp.list-posts"
+              with:
+                search: "rest.search"
+                categories: "rest.categories"
+                tags: "rest.tags"
+                author: "rest.author"
+                after: "rest.after"
+                before: "rest.before"
+                page: "rest.page"
+                per_page: "rest.per_page"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/posts/{id}
+          name: post
+          description: "Single article retrieval"
+          operations:
+            - method: GET
+              name: get-post
+              description: "Get a specific TechCrunch article"
+              call: "techcrunch-wp.get-post"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/categories
+          name: categories
+          description: "TechCrunch content categories"
+          operations:
+            - method: GET
+              name: list-categories
+              description: "List all content categories"
+              call: "techcrunch-wp.list-categories"
+              with:
+                search: "rest.search"
+                hide_empty: "rest.hide_empty"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/categories/{id}
+          name: category
+          description: "Single category"
+          operations:
+            - method: GET
+              name: get-category
+              description: "Get a specific category"
+              call: "techcrunch-wp.get-category"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/tags
+          name: tags
+          description: "TechCrunch content tags"
+          operations:
+            - method: GET
+              name: list-tags
+              description: "List all content tags"
+              call: "techcrunch-wp.list-tags"
+              with:
+                search: "rest.search"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/authors
+          name: authors
+          description: "TechCrunch authors and contributors"
+          operations:
+            - method: GET
+              name: list-authors
+              description: "List all TechCrunch authors"
+              call: "techcrunch-wp.list-authors"
+              with:
+                search: "rest.search"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/authors/{id}
+          name: author
+          description: "Single author profile"
+          operations:
+            - method: GET
+              name: get-author
+              description: "Get an author profile"
+              call: "techcrunch-wp.get-author"
+              with:
+                id: "rest.id"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/media
+          name: media
+          description: "Media attachments"
+          operations:
+            - method: GET
+              name: list-media
+              description: "List media attachments"
+              call: "techcrunch-wp.list-media"
+              with:
+                media_type: "rest.media_type"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/search
+          name: search
+          description: "Full-text content search"
+          operations:
+            - method: GET
+              name: search-content
+              description: "Search across all TechCrunch content"
+              call: "techcrunch-wp.search-content"
+              with:
+                search: "rest.search"
+                type: "rest.type"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9080
+      namespace: content-discovery-mcp
+      transport: http
+      description: "MCP server for AI-assisted TechCrunch content discovery and research."
+      tools:
+        - name: search-articles
+          description: "Search TechCrunch articles by keyword, topic, or company name"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "techcrunch-wp.search-content"
+          with:
+            search: "tools.search"
+            type: "tools.type"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-articles
+          description: "List recent TechCrunch articles with optional filters by category, tag, author, or date"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "techcrunch-wp.list-posts"
+          with:
+            search: "tools.search"
+            categories: "tools.categories"
+            tags: "tools.tags"
+            author: "tools.author"
+            after: "tools.after"
+            before: "tools.before"
+            per_page: "tools.per_page"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-article
+          description: "Get the full content of a specific TechCrunch article by ID"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "techcrunch-wp.get-post"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-categories
+          description: "List all TechCrunch content categories (startups, AI, security, etc.)"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "techcrunch-wp.list-categories"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-category
+          description: "Get details for a specific content category"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "techcrunch-wp.get-category"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-tags
+          description: "List all TechCrunch content tags"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "techcrunch-wp.list-tags"
+          with:
+            search: "tools.search"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-authors
+          description: "List TechCrunch authors and journalists"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "techcrunch-wp.list-authors"
+          with:
+            search: "tools.search"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-author
+          description: "Get profile for a specific TechCrunch author"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "techcrunch-wp.get-author"
+          with:
+            id: "tools.id"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,41 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://techcrunch.com/wp-json/wp/v2/search?search=artificial+intelligence&type=post&per_page=5",
+    "headers": {
+      "Accept": "application/json"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json; charset=UTF-8",
+      "X-WP-Total": "2847",
+      "X-WP-TotalPages": "570"
+    },
+    "body": [
+      {
+        "id": 2891034,
+        "title": "AI Startup Funding Roundup: $2.1B raised across 12 deals in April 2026",
+        "url": "https://techcrunch.com/2026/05/03/ai-startup-funding-roundup-may-2026/",
+        "type": "post",
+        "subtype": "post",
+        "_links": {
+          "self": [{"href": "https://techcrunch.com/wp-json/wp/v2/posts/2891034"}],
+          "about": [{"href": "https://techcrunch.com/wp-json/wp/v2/types/post"}]
+        }
+      },
+      {
+        "id": 2890987,
+        "title": "OpenAI launches GPT-5 Enterprise with advanced reasoning capabilities",
+        "url": "https://techcrunch.com/2026/05/02/openai-gpt5-enterprise-launch/",
+        "type": "post",
+        "subtype": "post",
+        "_links": {
+          "self": [{"href": "https://techcrunch.com/wp-json/wp/v2/posts/2890987"}],
+          "about": [{"href": "https://techcrunch.com/wp-json/wp/v2/types/post"}]
+        }
+      }
+    ]
+  }
+}

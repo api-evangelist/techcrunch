@@ -1,0 +1,167 @@
+name: TechCrunch Vocabulary
+description: >-
+  Domain vocabulary for TechCrunch's technology media content, covering its WordPress
+  REST API, content taxonomy, editorial structure, and journalism domain.
+tags:
+  - Content
+  - Media
+  - News
+  - Startups
+  - Technology News
+  - Venture Capital
+created: '2026-05-03'
+modified: '2026-05-03'
+terms:
+  - term: Post
+    definition: >-
+      A published article or news story on TechCrunch, identified by a numeric ID
+      and slug. Posts include a title, content body, excerpt, author, categories,
+      and tags. The primary content type in the WordPress REST API.
+    synonyms:
+      - Article
+      - Story
+      - News Item
+    relatedTerms:
+      - Category
+      - Tag
+      - Author
+
+  - term: Category
+    definition: >-
+      A hierarchical content classification applied to TechCrunch posts. Categories
+      represent editorial sections such as Startups, Venture Capital, AI, Security,
+      Gadgets, Apps, and Transportation.
+    synonyms:
+      - Section
+      - Topic Area
+    relatedTerms:
+      - Post
+      - Tag
+
+  - term: Tag
+    definition: >-
+      A flat taxonomy term applied to posts for finer-grained topical classification.
+      Tags typically represent companies, technologies, people, or events mentioned
+      in TechCrunch coverage.
+    synonyms:
+      - Keyword
+      - Label
+    relatedTerms:
+      - Post
+      - Category
+
+  - term: Author
+    definition: >-
+      A TechCrunch journalist, reporter, or contributor identified by user ID and
+      slug. Author profiles include display name, bio, and avatar URL.
+    synonyms:
+      - Writer
+      - Contributor
+      - Reporter
+      - Journalist
+    relatedTerms:
+      - Post
+
+  - term: Featured Media
+    definition: >-
+      The primary image or media attachment associated with a TechCrunch post,
+      referenced by media ID. Featured media appears in post previews and social
+      sharing thumbnails.
+    synonyms:
+      - Hero Image
+      - Thumbnail
+      - Featured Image
+    relatedTerms:
+      - Post
+      - Media
+
+  - term: Excerpt
+    definition: >-
+      A short summary or teaser of a post's content, typically 1-3 sentences.
+      Used in post listings, RSS feeds, and social media previews. May be
+      auto-generated or manually written.
+    synonyms:
+      - Summary
+      - Teaser
+      - Description
+    relatedTerms:
+      - Post
+
+  - term: Slug
+    definition: >-
+      A URL-safe alphanumeric string derived from the post title, used as part of
+      the canonical URL. WordPress slugs are unique per content type.
+    synonyms:
+      - URL Slug
+      - Permalink
+    relatedTerms:
+      - Post
+      - Category
+      - Tag
+
+  - term: Rendered Content
+    definition: >-
+      WordPress REST API content fields (title, content, excerpt) are returned as
+      objects with a "rendered" property containing the HTML-processed version and
+      a "protected" boolean indicating password protection.
+    synonyms:
+      - Rendered Value
+      - HTML Content
+    relatedTerms:
+      - Post
+
+  - term: WordPress REST API
+    definition: >-
+      The standard RESTful API built into WordPress, accessible at /wp-json/wp/v2/.
+      TechCrunch uses this API as its primary content data layer for headless
+      architecture delivery to its React frontend.
+    synonyms:
+      - WP REST API
+      - WordPress JSON API
+    relatedTerms:
+      - Post
+      - Headless CMS
+
+  - term: RSS Feed
+    definition: >-
+      A standard XML/Atom syndication format provided by TechCrunch at
+      https://techcrunch.com/feed/ for programmatic content consumption. Category
+      and topic-specific feeds are also available.
+    synonyms:
+      - Atom Feed
+      - Syndication Feed
+    relatedTerms:
+      - Post
+
+  - term: Headless CMS
+    definition: >-
+      TechCrunch's architecture separates content management (WordPress) from
+      presentation (React frontend), using the WordPress REST API as the content
+      delivery layer.
+    synonyms:
+      - Decoupled CMS
+      - Content API
+    relatedTerms:
+      - WordPress REST API
+
+  - term: TechCrunch Disrupt
+    definition: >-
+      TechCrunch's flagship annual conference featuring the Startup Battlefield
+      competition, where early-stage startups pitch to investors and compete for
+      the Disrupt Cup.
+    synonyms:
+      - Disrupt
+      - TC Disrupt
+    relatedTerms:
+      - Startup Battlefield
+
+  - term: Startup Battlefield
+    definition: >-
+      TechCrunch's premier startup launch competition held at Disrupt, where
+      early-stage companies demo to a panel of judges for the chance to win prize
+      money and media coverage.
+    synonyms:
+      - Battlefield
+      - Startup Competition
+    relatedTerms:
+      - TechCrunch Disrupt
