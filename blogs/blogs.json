@@ -1,0 +1,13 @@
+{
+  "repo": "techcrunch",
+  "feeds": [
+    {
+      "source": "https://techcrunch.com/feed/",
+      "feed_url": "https://techcrunch.com/feed/",
+      "saved": 10,
+      "title": "TechCrunch"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:37:21Z"
+}
