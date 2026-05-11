@@ -119,6 +119,28 @@ common:
   - type: JSONLDContext
     url: >-
       https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-ld/techcrunch-context.jsonld
+  - type: Integrations
+    url: https://techcrunch.com/category/apps/
+integrations:
+  - name: Prime Video
+  - name: Truecaller
+  - name: TechCrunch Disrupt
+  - name: Disney+ app on phone
+  - name: Personal Computer splash screen
+  - name: TechCrunch Startup Battlefield 200 2023
+  - name: TechCrunch Disrupt 2024 exhibitor Google
+  - name: Spotify AI DJ on smartphone screen
+  - name: Snap banner at NY stock exchange
+  - name: tinder icon ios
+  - name: Bumble logo on smartphone screen
+  - name: Etsy on mobile
+  - name: TechCrunch Disrupt 2026 exhibitor
+  - name: view at TechCrunch Disrupt 2015
+  - name: ChatGPT India
+  - name: X icon on a smartphone screen
+  - name: 'Spotify ''verified'' badge'
+  - name: Event
+  - name: TechCrunch
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
