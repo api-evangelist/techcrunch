@@ -1,0 +1,132 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TechCrunch WordPress REST API — Tags
+  description: 'TechCrunch WordPress REST API — Tags. 2 operations. Lead operation: List Tags. Self-contained Naftiko capability
+    covering one Techcrunch business surface.'
+  tags:
+  - Techcrunch
+  - Tags
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TECHCRUNCH_API_KEY: TECHCRUNCH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wordpress-rest-tags
+    baseUri: https://techcrunch.com/wp-json/wp/v2
+    description: TechCrunch WordPress REST API — Tags business capability. Self-contained, no shared references.
+    resources:
+    - name: tags
+      path: /tags
+      operations:
+      - name: listtags
+        method: GET
+        description: List Tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+        - name: search
+          in: query
+          type: string
+        - name: orderby
+          in: query
+          type: string
+        - name: order
+          in: query
+          type: string
+        - name: hide_empty
+          in: query
+          type: boolean
+    - name: tags-id
+      path: /tags/{id}
+      operations:
+      - name: gettag
+        method: GET
+        description: Get Tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: wordpress-rest-tags-rest
+    port: 8080
+    description: REST adapter for TechCrunch WordPress REST API — Tags. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/tags
+      name: tags
+      description: REST surface for tags.
+      operations:
+      - method: GET
+        name: listtags
+        description: List Tags
+        call: wordpress-rest-tags.listtags
+        with:
+          page: rest.page
+          per_page: rest.per_page
+          search: rest.search
+          orderby: rest.orderby
+          order: rest.order
+          hide_empty: rest.hide_empty
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags/{id}
+      name: tags-id
+      description: REST surface for tags-id.
+      operations:
+      - method: GET
+        name: gettag
+        description: Get Tag
+        call: wordpress-rest-tags.gettag
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wordpress-rest-tags-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TechCrunch WordPress REST API — Tags. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-tags
+      description: List Tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wordpress-rest-tags.listtags
+      with:
+        page: tools.page
+        per_page: tools.per_page
+        search: tools.search
+        orderby: tools.orderby
+        order: tools.order
+        hide_empty: tools.hide_empty
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-tag
+      description: Get Tag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wordpress-rest-tags.gettag
+      outputParameters:
+      - type: object
+        mapping: $.

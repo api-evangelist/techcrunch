@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: TechCrunch WordPress REST API — Pages
+  description: 'TechCrunch WordPress REST API — Pages. 2 operations. Lead operation: List Pages. Self-contained Naftiko capability
+    covering one Techcrunch business surface.'
+  tags:
+  - Techcrunch
+  - Pages
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TECHCRUNCH_API_KEY: TECHCRUNCH_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: wordpress-rest-pages
+    baseUri: https://techcrunch.com/wp-json/wp/v2
+    description: TechCrunch WordPress REST API — Pages business capability. Self-contained, no shared references.
+    resources:
+    - name: pages
+      path: /pages
+      operations:
+      - name: listpages
+        method: GET
+        description: List Pages
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: page
+          in: query
+          type: integer
+        - name: per_page
+          in: query
+          type: integer
+        - name: search
+          in: query
+          type: string
+        - name: orderby
+          in: query
+          type: string
+        - name: order
+          in: query
+          type: string
+    - name: pages-id
+      path: /pages/{id}
+      operations:
+      - name: getpage
+        method: GET
+        description: Get Page
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: wordpress-rest-pages-rest
+    port: 8080
+    description: REST adapter for TechCrunch WordPress REST API — Pages. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/pages
+      name: pages
+      description: REST surface for pages.
+      operations:
+      - method: GET
+        name: listpages
+        description: List Pages
+        call: wordpress-rest-pages.listpages
+        with:
+          page: rest.page
+          per_page: rest.per_page
+          search: rest.search
+          orderby: rest.orderby
+          order: rest.order
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/pages/{id}
+      name: pages-id
+      description: REST surface for pages-id.
+      operations:
+      - method: GET
+        name: getpage
+        description: Get Page
+        call: wordpress-rest-pages.getpage
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: wordpress-rest-pages-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for TechCrunch WordPress REST API — Pages. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-pages
+      description: List Pages
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wordpress-rest-pages.listpages
+      with:
+        page: tools.page
+        per_page: tools.per_page
+        search: tools.search
+        orderby: tools.orderby
+        order: tools.order
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-page
+      description: Get Page
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: wordpress-rest-pages.getpage
+      outputParameters:
+      - type: object
+        mapping: $.
