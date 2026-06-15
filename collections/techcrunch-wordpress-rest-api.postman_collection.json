@@ -1,0 +1,2398 @@
+{
+  "item": [
+    {
+      "id": "b14d2e52-1322-4069-a6eb-54b420c49a34",
+      "name": "Posts",
+      "description": {
+        "content": "Article and post content",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ad27b39b-54ed-45a5-b6ef-98ef5ac9d41f",
+          "name": "List Posts",
+          "request": {
+            "name": "List Posts",
+            "description": {
+              "content": "Retrieve a paginated list of published posts from TechCrunch. Supports filtering by author, category, tag, date range, and full-text search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "posts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to be returned in result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<dateTime>",
+                  "description": "Limit response to posts published after a given ISO8601 date."
+                },
+                {
+                  "disabled": false,
+                  "key": "before",
+                  "value": "<dateTime>",
+                  "description": "Limit response to posts published before a given ISO8601 date."
+                },
+                {
+                  "disabled": false,
+                  "key": "author",
+                  "value": "<integer>",
+                  "description": "Limit result set to posts assigned to specific authors."
+                },
+                {
+                  "disabled": false,
+                  "key": "author",
+                  "value": "<integer>",
+                  "description": "Limit result set to posts assigned to specific authors."
+                },
+                {
+                  "disabled": false,
+                  "key": "categories",
+                  "value": "<integer>",
+                  "description": "Limit result set to posts assigned to specific category IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "categories",
+                  "value": "<integer>",
+                  "description": "Limit result set to posts assigned to specific category IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<integer>",
+                  "description": "Limit result set to posts assigned to specific tag IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<integer>",
+                  "description": "Limit result set to posts assigned to specific tag IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date",
+                  "description": "Sort collection by object attribute."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc",
+                  "description": "Order sort attribute ascending or descending."
+                },
+                {
+                  "disabled": false,
+                  "key": "_fields",
+                  "value": "<string>",
+                  "description": "Limit response to specific fields. Separate multiple fields with commas."
+                },
+                {
+                  "disabled": false,
+                  "key": "_embed",
+                  "value": "<boolean>",
+                  "description": "Embed linked resources in the response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb7c01b9-19d4-46aa-bc51-fde57a5129db",
+              "name": "List of posts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "posts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_embed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of posts.",
+                  "key": "X-WP-Total",
+                  "value": "1199"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages.",
+                  "key": "X-WP-TotalPages",
+                  "value": "1199"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7920,\n    \"date\": \"1990-10-19T22:38:53.759Z\",\n    \"date_gmt\": \"2017-12-05T03:53:45.682Z\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"1958-05-16T05:25:58.550Z\",\n    \"modified_gmt\": \"2006-03-10T09:03:20.025Z\",\n    \"slug\": \"string\",\n    \"status\": \"private\",\n    \"type\": \"post\",\n    \"link\": \"http://YvoxQqAZmOdcprAdVEYKeoxVQLmsTToS.urpjld0YsS9dnlfOeHzRDq\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"author\": 8294,\n    \"featured_media\": 1479,\n    \"comment_status\": \"open\",\n    \"ping_status\": \"open\",\n    \"sticky\": false,\n    \"template\": \"string\",\n    \"format\": \"audio\",\n    \"categories\": [\n      7577,\n      7162\n    ],\n    \"tags\": [\n      7522,\n      4520\n    ],\n    \"yoast_head_json\": {\n      \"key_0\": \"string\"\n    }\n  },\n  {\n    \"id\": 185,\n    \"date\": \"1986-10-25T00:02:37.520Z\",\n    \"date_gmt\": \"1952-09-08T13:44:54.271Z\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"2010-05-20T16:04:01.936Z\",\n    \"modified_gmt\": \"2006-01-01T10:06:19.313Z\",\n    \"slug\": \"string\",\n    \"status\": \"future\",\n    \"type\": \"post\",\n    \"link\": \"http://skBT.tithR9MNYX.jB8YjB-+Nlf1+hiNN5PtfGXAYvgBG140J\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"author\": 3878,\n    \"featured_media\": 1298,\n    \"comment_status\": \"closed\",\n    \"ping_status\": \"closed\",\n    \"sticky\": false,\n    \"template\": \"string\",\n    \"format\": \"video\",\n    \"categories\": [\n      9274,\n      8813\n    ],\n    \"tags\": [\n      3460,\n      5714\n    ],\n    \"yoast_head_json\": {\n      \"key_0\": 5621,\n      \"key_1\": \"string\",\n      \"key_2\": 660\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "418fb703-272e-4222-b0af-42751ab21535",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "posts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "before",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "author",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_embed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "881c7c1b-23cc-4a60-8566-148ec77dc6e6",
+          "name": "Get Post",
+          "request": {
+            "name": "Get Post",
+            "description": {
+              "content": "Retrieve a specific published post by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "posts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_fields",
+                  "value": "<string>",
+                  "description": "Limit response to specific fields."
+                },
+                {
+                  "disabled": false,
+                  "key": "_embed",
+                  "value": "<boolean>",
+                  "description": "Embed linked resources."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d0ce9521-c9e2-4624-ab45-d851db68b073",
+              "name": "Post object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "posts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_embed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8533,\n  \"date\": \"2004-01-31T13:15:25.439Z\",\n  \"date_gmt\": \"1950-04-09T11:10:47.970Z\",\n  \"guid\": {\n    \"rendered\": \"string\"\n  },\n  \"modified\": \"1952-07-02T02:14:15.406Z\",\n  \"modified_gmt\": \"1991-06-06T18:46:29.519Z\",\n  \"slug\": \"string\",\n  \"status\": \"future\",\n  \"type\": \"post\",\n  \"link\": \"https://qbpLgOasoYNlvRmhrFGcID.fnorFzkdq9ewX3zFW9E,GvZEJ3x7DfW\",\n  \"title\": {\n    \"rendered\": \"string\"\n  },\n  \"content\": {\n    \"rendered\": \"string\",\n    \"protected\": true\n  },\n  \"excerpt\": {\n    \"rendered\": \"string\",\n    \"protected\": false\n  },\n  \"author\": 6547,\n  \"featured_media\": 2965,\n  \"comment_status\": \"closed\",\n  \"ping_status\": \"open\",\n  \"sticky\": true,\n  \"template\": \"string\",\n  \"format\": \"status\",\n  \"categories\": [\n    5756,\n    5237\n  ],\n  \"tags\": [\n    9917,\n    2492\n  ],\n  \"yoast_head_json\": {\n    \"key_0\": 3447,\n    \"key_1\": 8061.662707669324,\n    \"key_2\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "185a21d0-4525-4b34-8f70-cb60626d16da",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "posts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_embed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9aaa8fa3-db8e-4beb-b21b-60cdcc696202",
+      "name": "Pages",
+      "description": {
+        "content": "Static page content",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c60a71f2-0d45-4b9b-b5d4-d8e3ea4a3d44",
+          "name": "List Pages",
+          "request": {
+            "name": "List Pages",
+            "description": {
+              "content": "Retrieve a list of published pages from TechCrunch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "451ebdfb-7ee5-4a76-83a1-b106a80c80f4",
+              "name": "List of pages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5789,\n    \"date\": \"2009-08-01T08:02:44.591Z\",\n    \"date_gmt\": \"1985-05-23T21:43:33.921Z\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"1985-08-11T21:43:13.090Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"page\",\n    \"link\": \"http://WFHXreismAlO.rfvjmBVcpcz0mGoH90sZ5ZqiErlZS5KCcQmuamQX\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"author\": 6417,\n    \"featured_media\": 1238,\n    \"menu_order\": 9423,\n    \"template\": \"string\"\n  },\n  {\n    \"id\": 4246,\n    \"date\": \"2011-11-16T16:18:19.810Z\",\n    \"date_gmt\": \"1999-10-29T11:18:46.840Z\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"1966-06-21T11:47:58.999Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"page\",\n    \"link\": \"https://PaGyGjoMVIkdblUksUIZEYlJgoqCnUa.rsjhsazKmTGy+5xQVe\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"author\": 1858,\n    \"featured_media\": 9421,\n    \"menu_order\": 8030,\n    \"template\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32c7e9d9-3797-4b21-a1de-f2a215055c1b",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6fafd4df-5906-41c8-8f82-b35bfec01d6f",
+          "name": "Get Page",
+          "request": {
+            "name": "Get Page",
+            "description": {
+              "content": "Retrieve a specific page by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bfac8009-6a35-43d0-b83d-c156e384fbc1",
+              "name": "Page object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1449,\n  \"date\": \"1962-03-10T03:32:57.634Z\",\n  \"date_gmt\": \"2019-08-22T16:34:15.266Z\",\n  \"guid\": {\n    \"rendered\": \"string\"\n  },\n  \"modified\": \"2015-06-14T08:30:19.565Z\",\n  \"slug\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"page\",\n  \"link\": \"https://AuUOYuNuNoJZydnkwGm.rrumJDLB4mHmSmt6vmf4ZHtcWJpg-UszxqfYeTnoLwMQrTrp3fSEafSHKfh3F4SAsqdac\",\n  \"title\": {\n    \"rendered\": \"string\"\n  },\n  \"content\": {\n    \"rendered\": \"string\",\n    \"protected\": false\n  },\n  \"excerpt\": {\n    \"rendered\": \"string\",\n    \"protected\": true\n  },\n  \"author\": 9894,\n  \"featured_media\": 2905,\n  \"menu_order\": 3016,\n  \"template\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "269efebe-108e-4a62-bf3b-ade83b94f7b3",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "272b7d2c-6f73-4858-84b6-d4b2ecdb4bdb",
+      "name": "Categories",
+      "description": {
+        "content": "Post category taxonomy",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9fee25bd-20cf-4402-80b4-412a5d758090",
+          "name": "List Categories",
+          "request": {
+            "name": "List Categories",
+            "description": {
+              "content": "Retrieve a list of all categories used on TechCrunch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "name"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "hide_empty",
+                  "value": "<boolean>",
+                  "description": "Whether to hide terms not assigned to any posts."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent",
+                  "value": "<integer>",
+                  "description": "Limit result set to terms assigned to a given parent ID."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2dca4929-8a21-4d71-a6ae-fd049f497ae9",
+              "name": "List of categories",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "hide_empty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9077,\n    \"count\": 3972,\n    \"description\": \"string\",\n    \"link\": \"https://wioTkbjFxJhkOOkUtZpdBNcTLJcLM.uixbhi2HN7XD+m0DAb,-bb7X77tFhD.\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"category\",\n    \"parent\": 9099\n  },\n  {\n    \"id\": 4557,\n    \"count\": 1111,\n    \"description\": \"string\",\n    \"link\": \"http://OExotxsEFYANHmKxa.sqc9HMW5alrYUCHpYuGfIoJNxFh5Tcnao6lU8Pz.ngTEeo2cnQ1QqWyvfoSPw0V\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"category\",\n    \"parent\": 4561\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d919c65e-7b7b-498e-9207-5bad3974e400",
+          "name": "Get Category",
+          "request": {
+            "name": "Get Category",
+            "description": {
+              "content": "Retrieve a specific category by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b72afa6d-ee73-4140-8326-5f1bee4be1d5",
+              "name": "Category object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4377,\n  \"count\": 2524,\n  \"description\": \"string\",\n  \"link\": \"http://QRduVTNzSftk.apmjHot8NlW9kl3U0Vu\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"taxonomy\": \"category\",\n  \"parent\": 1144\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71184864-30fa-48a3-805f-fee31b140dbd",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "098bc990-a546-4615-9c19-783d4cc4d7b5",
+      "name": "Tags",
+      "description": {
+        "content": "Post tag taxonomy",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2bb743d7-9ea3-4d68-b4a6-5268588c1549",
+          "name": "List Tags",
+          "request": {
+            "name": "List Tags",
+            "description": {
+              "content": "Retrieve a list of all tags used on TechCrunch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "name"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "hide_empty",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c223869c-4848-4f99-b4ef-bf1d46b1c82a",
+              "name": "List of tags",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "hide_empty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9066,\n    \"count\": 7551,\n    \"description\": \"string\",\n    \"link\": \"http://oSBhxMaswOTHrvdtXnWQzPbitk.eadsDbtiKqk2sVKKqJC,y0nYDIcIQd\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"post_tag\"\n  },\n  {\n    \"id\": 7051,\n    \"count\": 9460,\n    \"description\": \"string\",\n    \"link\": \"http://MfQfshLbhVYC.ynyucD-g7NMkkOe0aw,4Mj,F,-3LWZ3pxRRkMS5e,SBv-.Wp.fwUTlsNaP1-\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"post_tag\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54016c7e-a7d1-4c3e-9671-e65210dcea5c",
+          "name": "Get Tag",
+          "request": {
+            "name": "Get Tag",
+            "description": {
+              "content": "Retrieve a specific tag by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe1a6196-86bd-42d7-9ca4-5ca27d6a3375",
+              "name": "Tag object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1145,\n  \"count\": 4282,\n  \"description\": \"string\",\n  \"link\": \"http://eVRFRyOPPs.xaJEtUTIKfAYTDuLZzpLMBgx-\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"taxonomy\": \"post_tag\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31685d89-975f-475c-9014-1bc60f60d876",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "71905f7d-f9c8-409e-9686-7bf37599d2ad",
+      "name": "Authors",
+      "description": {
+        "content": "Author and contributor profiles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e670d99d-86c3-4244-9cb0-de1364fbab5b",
+          "name": "List Authors",
+          "request": {
+            "name": "List Authors",
+            "description": {
+              "content": "Retrieve a list of registered authors and contributors on TechCrunch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "name"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "who",
+                  "value": "<string>",
+                  "description": "Limit result set to users who are considered authors."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea6b718a-fa79-436f-966a-8077edf31745",
+              "name": "List of authors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "who",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7224,\n    \"name\": \"string\",\n    \"url\": \"http://JMuQxoRGulcCQ.gkbwxJ5PvbK29rYopUnUXMd\",\n    \"description\": \"string\",\n    \"link\": \"https://zLUyLbiYbxdbXkkIqMmkecGusHjtvz.qqkicUnQAy-2v+QszpctDEWIEER8NS\",\n    \"slug\": \"string\",\n    \"avatar_urls\": {\n      \"key_0\": \"http://mvadkIjycgOpcQRijFaIunUF.avQh6Zh\",\n      \"key_1\": \"http://wGFAedNPRlsFltHYlWJPPa.jlHfqeyaXB2b5If5lR0UQf-+HZmIy\"\n    }\n  },\n  {\n    \"id\": 6981,\n    \"name\": \"string\",\n    \"url\": \"http://fzsjjnzRzSUtWCyVbDkdrsgGYzOWXuNa.yvlgzJigJRhFdqQUqoE1\",\n    \"description\": \"string\",\n    \"link\": \"https://AWmRwoumHgLvRdPylK.nhuE\",\n    \"slug\": \"string\",\n    \"avatar_urls\": {\n      \"key_0\": \"http://KdyJgiqqGyHgnTuuUhhcBOJRUX.htpL-AWOCe0Mpc7M,qmT0+geVKnU6zipybbAhzeEZqOKHlTYUEqDmIuOlaHisCyuJ46eoJ\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1211d15-1c1b-4406-8e0e-39d3f1628565",
+          "name": "Get Author",
+          "request": {
+            "name": "Get Author",
+            "description": {
+              "content": "Retrieve a specific author by their unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c4d2862-91c2-4843-8fe0-3d9983e674dd",
+              "name": "Author object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4149,\n  \"name\": \"string\",\n  \"url\": \"http://EVboeClFrStGD.bbzkr3Gs,MEVL3g9Pv\",\n  \"description\": \"string\",\n  \"link\": \"https://aDqbumYJ.gfhs1e3XxkIKSrpAsp\",\n  \"slug\": \"string\",\n  \"avatar_urls\": {\n    \"key_0\": \"https://tsXngqhQ.uiBqJRkL8Of7TH-vF566rPhh4\",\n    \"key_1\": \"http://pfEpGSBrmyLdUaSBQhPnqtyocl.riGNUu.nj7HY9Cf90LNW,Rtccpw\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afe264a1-453e-42e7-905a-56543aadd52e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "39fb3e5e-c85e-4b4a-ab77-026d66fa4b2a",
+      "name": "Media",
+      "description": {
+        "content": "Media files and attachments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c48eafb-54d2-40b8-918e-319c8d30aa96",
+          "name": "List Media",
+          "request": {
+            "name": "List Media",
+            "description": {
+              "content": "Retrieve a list of media items attached to TechCrunch posts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "media_type",
+                  "value": "<string>",
+                  "description": "Limit result set to attachments of a given media type."
+                },
+                {
+                  "disabled": false,
+                  "key": "mime_type",
+                  "value": "<string>",
+                  "description": "Limit result set to attachments of a given MIME type."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "538a61e5-26b7-4a91-bd61-86c2f1e60976",
+              "name": "List of media items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "media_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 534,\n    \"date\": \"2024-05-23T00:20:30.210Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"attachment\",\n    \"link\": \"http://UTEAWAsalLuPG.occuWoBQP1dfVfbTR\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"author\": 8762,\n    \"caption\": {\n      \"rendered\": \"string\"\n    },\n    \"alt_text\": \"string\",\n    \"media_type\": \"image\",\n    \"mime_type\": \"string\",\n    \"media_details\": {\n      \"key_0\": 8594,\n      \"key_1\": \"string\"\n    },\n    \"source_url\": \"https://HKsjgIewASGGqyiiuT.fwuK3p6ebbyPETSo4HwiHQdABCWr19ZXo\"\n  },\n  {\n    \"id\": 728,\n    \"date\": \"1992-08-26T01:13:07.916Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"attachment\",\n    \"link\": \"http://BQCqYXaztfgKpGIW.scqwHKQo-BVqtwvlNSl2SiwZv\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"author\": 5404,\n    \"caption\": {\n      \"rendered\": \"string\"\n    },\n    \"alt_text\": \"string\",\n    \"media_type\": \"file\",\n    \"mime_type\": \"string\",\n    \"media_details\": {\n      \"key_0\": 961.9670127948399,\n      \"key_1\": 5412,\n      \"key_2\": 7053\n    },\n    \"source_url\": \"https://bSLWVixscaZikxLLuGswNCR.mtkk.nHMJv\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97536e45-b55c-4169-b5fd-570b45b7a83d",
+          "name": "Get Media Item",
+          "request": {
+            "name": "Get Media Item",
+            "description": {
+              "content": "Retrieve a specific media item by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "media",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9edd9b7-485f-4ca7-964b-720de6009965",
+              "name": "Media item object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2630,\n  \"date\": \"1983-01-25T13:29:24.794Z\",\n  \"slug\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"attachment\",\n  \"link\": \"https://mvwGlxPbDYQDImxaRmOMOEBxSbKjS.ravOzfaP6X9NoVDoqxJdaMzHpNcJNGce4ZD+Db4PFV0c5rgC+VmF4Sjm8,nlX\",\n  \"title\": {\n    \"rendered\": \"string\"\n  },\n  \"author\": 8772,\n  \"caption\": {\n    \"rendered\": \"string\"\n  },\n  \"alt_text\": \"string\",\n  \"media_type\": \"file\",\n  \"mime_type\": \"string\",\n  \"media_details\": {\n    \"key_0\": true\n  },\n  \"source_url\": \"http://dkAqWBVfD.sydrjUtB8KtBykDzWEOeMOuD.Hg3pz5ZQrxwahAodOLEB2YUozlSeyidj\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3fb790b-d377-4033-808c-ea6374482c91",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "724ed004-2ad5-49ba-8998-29d06e90f942",
+      "name": "Comments",
+      "description": {
+        "content": "Post comments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9fe046d9-f4dd-4a26-bb2e-1460b0140da6",
+          "name": "List Comments",
+          "request": {
+            "name": "List Comments",
+            "description": {
+              "content": "Retrieve a list of comments on TechCrunch posts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "post",
+                  "value": "<integer>",
+                  "description": "Limit result set to comments assigned to a specific post."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "approved"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date_gmt"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1678cad7-702e-4e15-8fe6-b7ac57ae6c29",
+              "name": "List of comments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "post",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "approved"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date_gmt"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4886,\n    \"post\": 1769,\n    \"parent\": 4764,\n    \"author\": 2775,\n    \"author_name\": \"string\",\n    \"author_url\": \"https://wtUZzQTHLWYmfVTuJiUEq.joqs4s1OGsRuV-WVm6QCVN-ku79mq\",\n    \"date\": \"1996-04-24T04:19:21.003Z\",\n    \"date_gmt\": \"1953-06-28T18:03:09.447Z\",\n    \"content\": {\n      \"rendered\": \"string\"\n    },\n    \"link\": \"http://pqjIIGPUylYbNLGeLqmfIQRZ.mtzOy,p7-VEFa3gK0huaGWHCR+8-DA+SchHDJlW9+OIuU7pPBI9P\",\n    \"status\": \"string\",\n    \"type\": \"string\"\n  },\n  {\n    \"id\": 5451,\n    \"post\": 7869,\n    \"parent\": 135,\n    \"author\": 344,\n    \"author_name\": \"string\",\n    \"author_url\": \"http://JlAqQPPbJJfWxA.ywXO\",\n    \"date\": \"1972-11-16T10:05:41.414Z\",\n    \"date_gmt\": \"2014-12-25T23:48:00.592Z\",\n    \"content\": {\n      \"rendered\": \"string\"\n    },\n    \"link\": \"https://ymmiPmvd.bsmfnzMEPgBiobNo+fZ9wgsKTUZScRqEX7RvAeOttCpJ\",\n    \"status\": \"string\",\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "227ca625-5589-4821-a865-d3b59a74c228",
+          "name": "Get Comment",
+          "request": {
+            "name": "Get Comment",
+            "description": {
+              "content": "Retrieve a specific comment by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bdb385d-b684-42ab-b934-cf4b40896445",
+              "name": "Comment object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5582,\n  \"post\": 2951,\n  \"parent\": 4994,\n  \"author\": 4371,\n  \"author_name\": \"string\",\n  \"author_url\": \"https://xcwPvbaXhwXJhVICbgrORL.ofRJ283QqNph9AhozCARfoxRtZPyjpAQub+GUjSwJYF\",\n  \"date\": \"2023-10-10T21:12:44.694Z\",\n  \"date_gmt\": \"1982-06-25T14:48:03.362Z\",\n  \"content\": {\n    \"rendered\": \"string\"\n  },\n  \"link\": \"https://TgxoNhnuDqR.qwnfOe8.U03CJgIdVK9C1sIoNVNTTVgGEeozoVCiFGaK.rpiIfHQeYtYO-GLJgr\",\n  \"status\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae7c403d-f6c0-47e2-b2d5-63e213b1a32e",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b5a0188c-40d5-4f60-ad67-932a1974ae8c",
+      "name": "Search",
+      "description": {
+        "content": "Full-text search across content",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "30afb124-a881-4429-9e17-928bffa34ee4",
+          "name": "Search Content",
+          "request": {
+            "name": "Search Content",
+            "description": {
+              "content": "Search across all TechCrunch content including posts, pages, and other content types using full-text search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "(Required) Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "post",
+                  "description": "Limit result set to items of an object type."
+                },
+                {
+                  "disabled": false,
+                  "key": "subtype",
+                  "value": "<string>",
+                  "description": "Limit result set to items with a given object subtype."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "868c96be-29fa-4e35-91ad-2fdee64313ba",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "type",
+                      "value": "post"
+                    },
+                    {
+                      "key": "subtype",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6635,\n    \"title\": \"string\",\n    \"url\": \"http://R.nbxPdB,D0Okz8dCPpnwOxZ2Qom,2m6y\",\n    \"type\": \"string\",\n    \"subtype\": \"string\",\n    \"_links\": {\n      \"key_0\": 3075.499096206713,\n      \"key_1\": \"string\"\n    }\n  },\n  {\n    \"id\": 5268,\n    \"title\": \"string\",\n    \"url\": \"http://JToiJWDuKLOQDJeXXZYgFq.yrQcE-zKxGYWNG9\",\n    \"type\": \"string\",\n    \"subtype\": \"string\",\n    \"_links\": {\n      \"key_0\": 5241\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54eb4552-a940-4236-b82f-87fce462ae2f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "type",
+                      "value": "post"
+                    },
+                    {
+                      "key": "subtype",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 575\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://techcrunch.com/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1e2ed1bf-fe30-4b48-8d09-0843f6d58d67",
+    "name": "TechCrunch WordPress REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.\n\nContact Support:\n Name: TechCrunch",
+      "type": "text/plain"
+    }
+  }
+}
