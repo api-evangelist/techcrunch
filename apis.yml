@@ -8,7 +8,7 @@ description: >-
   Startup Battlefield competition. TechCrunch runs on WordPress and exposes the standard WordPress REST API for
   programmatic content access.
 type: Index
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Media
   - News
