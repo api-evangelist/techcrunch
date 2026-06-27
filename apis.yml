@@ -45,7 +45,7 @@ apis:
       - type: JSONSchema
         url: >-
           https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
-      - type: NaftikoPCapabilities
+      - type: X-NaftikoPCapabilities
         url: >-
           https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
       - type: SpectralRules
