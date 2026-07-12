@@ -72,6 +72,8 @@ apis:
       - type: RSSFeed
         url: https://techcrunch.com/feed/
 common:
+  - type: DomainSecurity
+    url: security/techcrunch-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/techcrunch
   - url: https://techcrunch.com/
