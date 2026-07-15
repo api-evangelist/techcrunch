@@ -72,6 +72,8 @@ apis:
       - type: RSSFeed
         url: https://techcrunch.com/feed/
 common:
+  - type: AgenticAccess
+    url: agentic-access/techcrunch-agentic-access.yml
   - type: DomainSecurity
     url: security/techcrunch-domain-security.yml
   - type: GitHubOrganization
