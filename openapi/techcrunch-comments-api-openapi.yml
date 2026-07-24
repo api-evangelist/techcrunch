@@ -1,0 +1,165 @@
+openapi: 3.1.0
+info:
+  title: TechCrunch WordPress REST Authors Comments API
+  description: TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.
+  version: v2
+  contact:
+    name: TechCrunch
+    url: https://techcrunch.com/contact-us/
+  license:
+    name: Terms of Service
+    url: https://techcrunch.com/terms-of-service/
+servers:
+- url: https://techcrunch.com/wp-json/wp/v2
+  description: TechCrunch WordPress REST API
+tags:
+- name: Comments
+  description: Post comments
+paths:
+  /comments:
+    get:
+      operationId: listComments
+      summary: List Comments
+      description: Retrieve a list of comments on TechCrunch posts.
+      tags:
+      - Comments
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 10
+          maximum: 100
+      - name: post
+        in: query
+        schema:
+          type: integer
+        description: Limit result set to comments assigned to a specific post.
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - approved
+          - hold
+          - spam
+          - trash
+          default: approved
+      - name: orderby
+        in: query
+        schema:
+          type: string
+          enum:
+          - date
+          - date_gmt
+          - id
+          - include
+          - post
+          - parent
+          - type
+          default: date_gmt
+      - name: order
+        in: query
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+      responses:
+        '200':
+          description: List of comments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+  /comments/{id}:
+    get:
+      operationId: getComment
+      summary: Get Comment
+      description: Retrieve a specific comment by its unique ID.
+      tags:
+      - Comments
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Comment object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    WPError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+    RenderedValue:
+      type: object
+      properties:
+        rendered:
+          type: string
+    Comment:
+      type: object
+      properties:
+        id:
+          type: integer
+        post:
+          type: integer
+        parent:
+          type: integer
+        author:
+          type: integer
+        author_name:
+          type: string
+        author_url:
+          type: string
+          format: uri
+        date:
+          type: string
+          format: date-time
+        date_gmt:
+          type: string
+          format: date-time
+        content:
+          $ref: '#/components/schemas/RenderedValue'
+        link:
+          type: string
+          format: uri
+        status:
+          type: string
+        type:
+          type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WPError'
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Unique identifier for the resource.

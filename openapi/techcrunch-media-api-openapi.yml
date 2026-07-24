@@ -1,0 +1,170 @@
+openapi: 3.1.0
+info:
+  title: TechCrunch WordPress REST Authors Media API
+  description: TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.
+  version: v2
+  contact:
+    name: TechCrunch
+    url: https://techcrunch.com/contact-us/
+  license:
+    name: Terms of Service
+    url: https://techcrunch.com/terms-of-service/
+servers:
+- url: https://techcrunch.com/wp-json/wp/v2
+  description: TechCrunch WordPress REST API
+tags:
+- name: Media
+  description: Media files and attachments
+paths:
+  /media:
+    get:
+      operationId: listMedia
+      summary: List Media
+      description: Retrieve a list of media items attached to TechCrunch posts.
+      tags:
+      - Media
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 10
+          maximum: 100
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: media_type
+        in: query
+        schema:
+          type: string
+          enum:
+          - image
+          - video
+          - text
+          - application
+          - audio
+        description: Limit result set to attachments of a given media type.
+      - name: mime_type
+        in: query
+        schema:
+          type: string
+        description: Limit result set to attachments of a given MIME type.
+      - name: orderby
+        in: query
+        schema:
+          type: string
+          default: date
+      - name: order
+        in: query
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+      responses:
+        '200':
+          description: List of media items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Media'
+  /media/{id}:
+    get:
+      operationId: getMedia
+      summary: Get Media Item
+      description: Retrieve a specific media item by its unique ID.
+      tags:
+      - Media
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Media item object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    WPError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+    Media:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+        slug:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+          example: attachment
+        link:
+          type: string
+          format: uri
+        title:
+          $ref: '#/components/schemas/RenderedValue'
+        author:
+          type: integer
+        caption:
+          $ref: '#/components/schemas/RenderedValue'
+        alt_text:
+          type: string
+        media_type:
+          type: string
+          enum:
+          - image
+          - file
+        mime_type:
+          type: string
+        media_details:
+          type: object
+          additionalProperties: true
+        source_url:
+          type: string
+          format: uri
+    RenderedValue:
+      type: object
+      properties:
+        rendered:
+          type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WPError'
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Unique identifier for the resource.

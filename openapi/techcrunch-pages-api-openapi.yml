@@ -1,0 +1,177 @@
+openapi: 3.1.0
+info:
+  title: TechCrunch WordPress REST Authors Pages API
+  description: TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.
+  version: v2
+  contact:
+    name: TechCrunch
+    url: https://techcrunch.com/contact-us/
+  license:
+    name: Terms of Service
+    url: https://techcrunch.com/terms-of-service/
+servers:
+- url: https://techcrunch.com/wp-json/wp/v2
+  description: TechCrunch WordPress REST API
+tags:
+- name: Pages
+  description: Static page content
+paths:
+  /pages:
+    get:
+      operationId: listPages
+      summary: List Pages
+      description: Retrieve a list of published pages from TechCrunch.
+      tags:
+      - Pages
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 10
+          maximum: 100
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: orderby
+        in: query
+        schema:
+          type: string
+          enum:
+          - author
+          - date
+          - id
+          - modified
+          - title
+          - slug
+          default: date
+      - name: order
+        in: query
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+      responses:
+        '200':
+          description: List of pages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Page'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /pages/{id}:
+    get:
+      operationId: getPage
+      summary: Get Page
+      description: Retrieve a specific page by its unique ID.
+      tags:
+      - Pages
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Page object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    WPError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+    RenderedValueWithProtected:
+      type: object
+      properties:
+        rendered:
+          type: string
+        protected:
+          type: boolean
+    Page:
+      type: object
+      properties:
+        id:
+          type: integer
+        date:
+          type: string
+          format: date-time
+        date_gmt:
+          type: string
+          format: date-time
+        guid:
+          $ref: '#/components/schemas/RenderedValue'
+        modified:
+          type: string
+          format: date-time
+        slug:
+          type: string
+        status:
+          type: string
+        type:
+          type: string
+          example: page
+        link:
+          type: string
+          format: uri
+        title:
+          $ref: '#/components/schemas/RenderedValue'
+        content:
+          $ref: '#/components/schemas/RenderedValueWithProtected'
+        excerpt:
+          $ref: '#/components/schemas/RenderedValueWithProtected'
+        author:
+          type: integer
+        featured_media:
+          type: integer
+        menu_order:
+          type: integer
+        template:
+          type: string
+    RenderedValue:
+      type: object
+      properties:
+        rendered:
+          type: string
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WPError'
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WPError'
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Unique identifier for the resource.

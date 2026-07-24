@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: TechCrunch WordPress REST Authors API
+  description: TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.
+  version: v2
+  contact:
+    name: TechCrunch
+    url: https://techcrunch.com/contact-us/
+  license:
+    name: Terms of Service
+    url: https://techcrunch.com/terms-of-service/
+servers:
+- url: https://techcrunch.com/wp-json/wp/v2
+  description: TechCrunch WordPress REST API
+tags:
+- name: Authors
+  description: Author and contributor profiles
+paths:
+  /users:
+    get:
+      operationId: listUsers
+      summary: List Authors
+      description: Retrieve a list of registered authors and contributors on TechCrunch.
+      tags:
+      - Authors
+      parameters:
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 10
+          maximum: 100
+      - name: search
+        in: query
+        schema:
+          type: string
+      - name: orderby
+        in: query
+        schema:
+          type: string
+          enum:
+          - id
+          - include
+          - name
+          - registered_date
+          - slug
+          - include_slugs
+          - email
+          - url
+          default: name
+      - name: order
+        in: query
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: asc
+      - name: who
+        in: query
+        schema:
+          type: string
+          enum:
+          - authors
+        description: Limit result set to users who are considered authors.
+      responses:
+        '200':
+          description: List of authors
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Author'
+  /users/{id}:
+    get:
+      operationId: getUser
+      summary: Get Author
+      description: Retrieve a specific author by their unique ID.
+      tags:
+      - Authors
+      parameters:
+      - $ref: '#/components/parameters/id'
+      responses:
+        '200':
+          description: Author object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Author'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: Unique identifier for the resource.
+  schemas:
+    WPError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+    Author:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        description:
+          type: string
+        link:
+          type: string
+          format: uri
+        slug:
+          type: string
+        avatar_urls:
+          type: object
+          additionalProperties:
+            type: string
+            format: uri
+  responses:
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WPError'

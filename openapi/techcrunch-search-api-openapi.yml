@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: TechCrunch WordPress REST Authors Search API
+  description: TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.
+  version: v2
+  contact:
+    name: TechCrunch
+    url: https://techcrunch.com/contact-us/
+  license:
+    name: Terms of Service
+    url: https://techcrunch.com/terms-of-service/
+servers:
+- url: https://techcrunch.com/wp-json/wp/v2
+  description: TechCrunch WordPress REST API
+tags:
+- name: Search
+  description: Full-text search across content
+paths:
+  /search:
+    get:
+      operationId: search
+      summary: Search Content
+      description: Search across all TechCrunch content including posts, pages, and other content types using full-text search.
+      tags:
+      - Search
+      parameters:
+      - name: search
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Limit results to those matching a string.
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          default: 10
+          maximum: 100
+      - name: type
+        in: query
+        schema:
+          type: string
+          enum:
+          - post
+          - page
+          - category
+          - tag
+          - user
+          default: post
+        description: Limit result set to items of an object type.
+      - name: subtype
+        in: query
+        schema:
+          type: string
+        description: Limit result set to items with a given object subtype.
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SearchResult'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+components:
+  schemas:
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        type:
+          type: string
+        subtype:
+          type: string
+        _links:
+          type: object
+          additionalProperties: true
+    WPError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/WPError'
