@@ -8,7 +8,19 @@ description: >-
   Startup Battlefield competition. TechCrunch runs on WordPress and exposes the standard WordPress REST API for
   programmatic content access.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/techcrunch.png
 tags:
   - Media
   - News
@@ -20,57 +32,194 @@ created: '2026-03-24'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: techcrunch:wordpress-rest-api
-    name: TechCrunch WordPress REST API
-    description: >-
-      TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for
-      accessing posts, pages, categories, tags, authors, media, comments, and search. The API is available at the
-      /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch
-      content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary
-      data layer for content delivery. No authentication is required for read operations.
-    humanURL: https://developer.wordpress.org/rest-api/
-    baseURL: https://techcrunch.com/wp-json/wp/v2
-    tags:
-      - Content
-      - JSON
-      - Media
-      - REST
-      - WordPress
-    properties:
-      - type: Documentation
-        url: https://developer.wordpress.org/rest-api/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/openapi/techcrunch-wordpress-rest-api-openapi.yml
-      - type: JSONSchema
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
-      - type: X-NaftikoPCapabilities
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
-      - type: SpectralRules
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
-  - aid: techcrunch:rss-feed
-    name: TechCrunch RSS Feed
-    description: >-
-      TechCrunch provides RSS feeds covering its full range of technology news, startup coverage, and venture capital
-      reporting. The main feed delivers all published articles, and category-specific feeds are available for topics
-      including startups, venture capital, artificial intelligence, security, apps, gadgets, and more. These standard
-      RSS/Atom feeds allow readers and developers to consume TechCrunch content programmatically using any standard feed
-      reader or parsing library.
-    humanURL: https://techcrunch.com/feed/
-    baseURL: https://techcrunch.com
-    tags:
-      - Feed
-      - News
-      - RSS
-      - Syndication
-    properties:
-      - type: Documentation
-        url: https://techcrunch.com/feed/
-      - type: RSSFeed
-        url: https://techcrunch.com/feed/
+- aid: techcrunch:rss-feed
+  name: TechCrunch RSS Feed
+  description: >-
+    TechCrunch provides RSS feeds covering its full range of technology news, startup coverage, and venture
+    capital reporting. The main feed delivers all published articles, and category-specific feeds are
+    available for topics including startups, venture capital, artificial intelligence, security, apps,
+    gadgets, and more. These standard RSS/Atom feeds allow readers and developers to consume TechCrunch
+    content programmatically using any standard feed reader or parsing library.
+  humanURL: https://techcrunch.com/feed/
+  baseURL: https://techcrunch.com
+  tags:
+  - Feed
+  - News
+  - RSS
+  - Syndication
+  properties:
+  - type: Documentation
+    url: https://techcrunch.com/feed/
+  - type: RSSFeed
+    url: https://techcrunch.com/feed/
+- aid: techcrunch:techcrunch-authors-api
+  name: TechCrunch Authors API
+  description: Author and contributor profiles
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://techcrunch.com/wp-json/wp/v2
+  tags:
+  - Authors
+  properties:
+  - type: OpenAPI
+    url: openapi/techcrunch-authors-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
+  - type: X-NaftikoPCapabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
+- aid: techcrunch:techcrunch-categories-api
+  name: TechCrunch Categories API
+  description: Post category taxonomy
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://techcrunch.com/wp-json/wp/v2
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/techcrunch-categories-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
+  - type: X-NaftikoPCapabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
+- aid: techcrunch:techcrunch-comments-api
+  name: TechCrunch Comments API
+  description: Post comments
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://techcrunch.com/wp-json/wp/v2
+  tags:
+  - Comments
+  properties:
+  - type: OpenAPI
+    url: openapi/techcrunch-comments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
+  - type: X-NaftikoPCapabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
+- aid: techcrunch:techcrunch-media-api
+  name: TechCrunch Media API
+  description: Media files and attachments
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://techcrunch.com/wp-json/wp/v2
+  tags:
+  - Media
+  properties:
+  - type: OpenAPI
+    url: openapi/techcrunch-media-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
+  - type: X-NaftikoPCapabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
+- aid: techcrunch:techcrunch-pages-api
+  name: TechCrunch Pages API
+  description: Static page content
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://techcrunch.com/wp-json/wp/v2
+  tags:
+  - Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/techcrunch-pages-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
+  - type: X-NaftikoPCapabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
+- aid: techcrunch:techcrunch-posts-api
+  name: TechCrunch Posts API
+  description: Article and post content
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://techcrunch.com/wp-json/wp/v2
+  tags:
+  - Posts
+  properties:
+  - type: OpenAPI
+    url: openapi/techcrunch-posts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
+  - type: X-NaftikoPCapabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
+- aid: techcrunch:techcrunch-search-api
+  name: TechCrunch Search API
+  description: Full-text search across content
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://techcrunch.com/wp-json/wp/v2
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/techcrunch-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
+  - type: X-NaftikoPCapabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
+- aid: techcrunch:techcrunch-tags-api
+  name: TechCrunch Tags API
+  description: Post tag taxonomy
+  humanURL: https://developer.wordpress.org/rest-api/
+  baseURL: https://techcrunch.com/wp-json/wp/v2
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/techcrunch-tags-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json
+  - type: X-NaftikoPCapabilities
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
 common:
   - type: AgenticAccess
     url: agentic-access/techcrunch-agentic-access.yml
