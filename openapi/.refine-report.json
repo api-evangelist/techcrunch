@@ -1,0 +1,28 @@
+{
+  "provider": "techcrunch",
+  "sources": [
+    "techcrunch-authors-api-openapi.yml",
+    "techcrunch-categories-api-openapi.yml",
+    "techcrunch-comments-api-openapi.yml",
+    "techcrunch-media-api-openapi.yml",
+    "techcrunch-pages-api-openapi.yml",
+    "techcrunch-posts-api-openapi.yml",
+    "techcrunch-search-api-openapi.yml",
+    "techcrunch-tags-api-openapi.yml"
+  ],
+  "outputs": [
+    "techcrunch-authors-api-openapi.yml",
+    "techcrunch-categories-api-openapi.yml",
+    "techcrunch-comments-api-openapi.yml",
+    "techcrunch-media-api-openapi.yml",
+    "techcrunch-pages-api-openapi.yml",
+    "techcrunch-posts-api-openapi.yml",
+    "techcrunch-search-api-openapi.yml",
+    "techcrunch-tags-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
