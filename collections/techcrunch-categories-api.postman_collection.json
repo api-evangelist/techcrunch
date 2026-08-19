@@ -1,0 +1,302 @@
+{
+  "item": [
+    {
+      "id": "a112705d-68bc-4fba-84fa-a44657b10dbf",
+      "name": "Categories",
+      "description": {
+        "content": "Post category taxonomy",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "08da0e2c-ddfd-44f8-82aa-e2082666278f",
+          "name": "List Categories",
+          "request": {
+            "name": "List Categories",
+            "description": {
+              "content": "Retrieve a list of all categories used on TechCrunch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "name"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "hide_empty",
+                  "value": "<boolean>",
+                  "description": "Whether to hide terms not assigned to any posts."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent",
+                  "value": "<integer>",
+                  "description": "Limit result set to terms assigned to a given parent ID."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8674d113-2e57-47c6-9393-803d48490289",
+              "name": "List of categories",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "hide_empty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "parent",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4469,\n    \"count\": 2311,\n    \"description\": \"string\",\n    \"link\": \"http://DKbPfEklFuhloniEF.dycJKy+ja32djonGULgTSbZKdqcbZ+MKyrXRT-fMl+0xOw35vrp.g7Xf8H9OilgITXcmnZJVo3C8o\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"category\",\n    \"parent\": 1952\n  },\n  {\n    \"id\": 6906,\n    \"count\": 8590,\n    \"description\": \"string\",\n    \"link\": \"https://MdHYMHKbtbTjhQRerCNPtTiH.wjtH-QnKoGtzaBHmB2mFxLj0bEcfQfV+7X.Cv9bto-f+5R\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"category\",\n    \"parent\": 9300\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e1176b5c-f8cc-44a8-97ae-7f012a154abe",
+          "name": "Get Category",
+          "request": {
+            "name": "Get Category",
+            "description": {
+              "content": "Retrieve a specific category by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "categories",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "335c7b03-3472-4a7c-82e5-f84ac1ccbe88",
+              "name": "Category object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3737,\n  \"count\": 4796,\n  \"description\": \"string\",\n  \"link\": \"http://KHilSuvGJbtFsXxgGrtRWuhXHnR.mnzvVFwJjMsooHU8r\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"taxonomy\": \"category\",\n  \"parent\": 183\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91d019a5-3ecb-4d04-9e68-9a7cec0c0f10",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "categories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 4378\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://techcrunch.com/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "02cd206f-ba34-4c32-b2f4-fa1c01dc74f8",
+    "name": "TechCrunch WordPress REST Authors Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.\n\nContact Support:\n Name: TechCrunch",
+      "type": "text/plain"
+    }
+  }
+}

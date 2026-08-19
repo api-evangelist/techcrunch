@@ -1,0 +1,290 @@
+{
+  "item": [
+    {
+      "id": "351ec14f-19f8-410e-aa78-1228263f4002",
+      "name": "Tags",
+      "description": {
+        "content": "Post tag taxonomy",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4630f4d6-6bf4-46f7-b2dc-4b6136fe782b",
+          "name": "List Tags",
+          "request": {
+            "name": "List Tags",
+            "description": {
+              "content": "Retrieve a list of all tags used on TechCrunch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "name"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "hide_empty",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19b834c4-9274-42de-b873-388db574b26c",
+              "name": "List of tags",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "hide_empty",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 913,\n    \"count\": 3470,\n    \"description\": \"string\",\n    \"link\": \"http://jGyousEgWRD.fvfaYI,QGFM2raisGl\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"post_tag\"\n  },\n  {\n    \"id\": 5339,\n    \"count\": 5276,\n    \"description\": \"string\",\n    \"link\": \"https://BdtKRnbHoJLtITIgfCerTzAAjJjwr.cjoecEjhKkQ,M,EFAturDOgwTDatNubu6xDYQ.tHmPY9RDcHbZGQiVNYFXPMAYS\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"post_tag\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a782770e-2b02-44a2-a520-e7301978b4ee",
+          "name": "Get Tag",
+          "request": {
+            "name": "Get Tag",
+            "description": {
+              "content": "Retrieve a specific tag by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tags",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b14c7be-b331-49ac-a99b-614fb89638f8",
+              "name": "Tag object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6378,\n  \"count\": 3981,\n  \"description\": \"string\",\n  \"link\": \"https://IsJgeSMehUerozTgCp.zrdosSdwbCQMzSlfcc2eUHepBaAWYFw9FqPGNHxaKszTGPDmorDnU-640jMDsVXqC\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"taxonomy\": \"post_tag\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a62ac57-fdc2-4f2b-a317-462ab3cdca1c",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 9029\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://techcrunch.com/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cab1ee8b-e52d-4bf8-b7e6-f383bbe7a57b",
+    "name": "TechCrunch WordPress REST Authors Tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.\n\nContact Support:\n Name: TechCrunch",
+      "type": "text/plain"
+    }
+  }
+}

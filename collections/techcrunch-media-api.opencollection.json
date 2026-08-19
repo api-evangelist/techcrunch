@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TechCrunch WordPress REST Authors Media API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Media",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/media",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "media_type",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to attachments of a given media type."
+              },
+              {
+                "name": "mime_type",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to attachments of a given MIME type."
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of media items attached to TechCrunch posts."
+        },
+        {
+          "info": {
+            "name": "Get Media Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/media/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific media item by its unique ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

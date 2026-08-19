@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TechCrunch WordPress REST Authors API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authors",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Authors",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/users",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "who",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to users who are considered authors."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of registered authors and contributors on TechCrunch."
+        },
+        {
+          "info": {
+            "name": "Get Author",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific author by their unique ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

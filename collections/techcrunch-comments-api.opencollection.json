@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TechCrunch WordPress REST Authors Comments API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Comments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Comments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/comments",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "post",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to comments assigned to a specific post."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of comments on TechCrunch posts."
+        },
+        {
+          "info": {
+            "name": "Get Comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/comments/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific comment by its unique ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

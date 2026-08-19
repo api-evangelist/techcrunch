@@ -1,0 +1,291 @@
+{
+  "item": [
+    {
+      "id": "7a560b83-4e3b-42a0-af23-366e658639ee",
+      "name": "Comments",
+      "description": {
+        "content": "Post comments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9fef0828-13ef-45d3-8518-a1951c8bb7ad",
+          "name": "List Comments",
+          "request": {
+            "name": "List Comments",
+            "description": {
+              "content": "Retrieve a list of comments on TechCrunch posts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "post",
+                  "value": "<integer>",
+                  "description": "Limit result set to comments assigned to a specific post."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "approved"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date_gmt"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29f967eb-8dc9-48ed-a07b-fc17ddafc0ce",
+              "name": "List of comments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "post",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "approved"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date_gmt"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 5069,\n    \"post\": 6721,\n    \"parent\": 6575,\n    \"author\": 56,\n    \"author_name\": \"string\",\n    \"author_url\": \"https://pcJbJgJVycySjsczvaWzMJsIxc.zemzikjbqRAm,1ib5g2yzK6P\",\n    \"date\": \"2005-08-19T10:38:59.386Z\",\n    \"date_gmt\": \"1986-10-25T21:44:53.083Z\",\n    \"content\": {\n      \"rendered\": \"string\"\n    },\n    \"link\": \"http://dBvbnuzEkLqlqRypJkQgYd.abxOEq7ADn\",\n    \"status\": \"string\",\n    \"type\": \"string\"\n  },\n  {\n    \"id\": 9349,\n    \"post\": 6879,\n    \"parent\": 4674,\n    \"author\": 381,\n    \"author_name\": \"string\",\n    \"author_url\": \"https://qmEqZUAEPoqjjDvVXDJrixavGA.qhHllwLGwhcGdznH8TZ.qm3lYkep+t,+dDDRck\",\n    \"date\": \"2022-11-09T14:04:27.130Z\",\n    \"date_gmt\": \"1964-02-23T19:50:17.730Z\",\n    \"content\": {\n      \"rendered\": \"string\"\n    },\n    \"link\": \"https://bDvkBQFWWcZkYKvAdQ.gjpUhhVMRqY\",\n    \"status\": \"string\",\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "affd60d4-081a-46da-95b3-c1347b4a3989",
+          "name": "Get Comment",
+          "request": {
+            "name": "Get Comment",
+            "description": {
+              "content": "Retrieve a specific comment by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "comments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e398a4bb-40ab-4a54-94d3-9af8d1e5db7a",
+              "name": "Comment object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1647,\n  \"post\": 5265,\n  \"parent\": 9695,\n  \"author\": 5411,\n  \"author_name\": \"string\",\n  \"author_url\": \"http://hf.swrvTQnY-fZymZP.NUcmH-232AwToLiRdszF8pmt06Po.T8QqCOSDZNK0I1fp\",\n  \"date\": \"1984-10-16T17:31:47.590Z\",\n  \"date_gmt\": \"2018-09-20T12:56:30.331Z\",\n  \"content\": {\n    \"rendered\": \"string\"\n  },\n  \"link\": \"http://irfTJY.ihrB0Dp9uhCHfEBRflcF9cRZS7eWGEGetgLQLwZ0z0ba9Bl2Q\",\n  \"status\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b60bfbf-2e61-4c66-b9e1-44a7affa49b6",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "comments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 8010\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://techcrunch.com/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "57320d7f-4f81-4d43-bfb6-8b2bf4dbbc06",
+    "name": "TechCrunch WordPress REST Authors Comments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.\n\nContact Support:\n Name: TechCrunch",
+      "type": "text/plain"
+    }
+  }
+}

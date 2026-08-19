@@ -1,0 +1,337 @@
+{
+  "item": [
+    {
+      "id": "291c8b60-0901-4727-84fd-26c47c4c6dc9",
+      "name": "Pages",
+      "description": {
+        "content": "Static page content",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a95028a3-2f91-49b0-aeea-78be6f649f3f",
+          "name": "List Pages",
+          "request": {
+            "name": "List Pages",
+            "description": {
+              "content": "Retrieve a list of published pages from TechCrunch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88603cf5-0d2a-44c1-9039-fb05f14e4bf5",
+              "name": "List of pages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6051,\n    \"date\": \"1949-01-24T20:00:21.378Z\",\n    \"date_gmt\": \"2022-12-06T21:02:33.582Z\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"2011-06-18T20:11:43.291Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"page\",\n    \"link\": \"https://WNRNRXWJInD.mdnbFaRQP0Ixn8OYJ-V6GGMi\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"author\": 265,\n    \"featured_media\": 9465,\n    \"menu_order\": 7041,\n    \"template\": \"string\"\n  },\n  {\n    \"id\": 3336,\n    \"date\": \"2013-11-03T06:35:49.582Z\",\n    \"date_gmt\": \"1971-08-23T13:53:44.830Z\",\n    \"guid\": {\n      \"rendered\": \"string\"\n    },\n    \"modified\": \"1954-05-26T00:38:36.333Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"page\",\n    \"link\": \"http://yfN.mpmdrSWvz1EVbdcfPk\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"author\": 1049,\n    \"featured_media\": 615,\n    \"menu_order\": 4711,\n    \"template\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2fff6cb4-5ecc-464c-83b4-bd5d68768edc",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 8801\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91e7575f-2bbb-4aea-ba48-da06d18595c8",
+          "name": "Get Page",
+          "request": {
+            "name": "Get Page",
+            "description": {
+              "content": "Retrieve a specific page by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pages",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97ddac83-5821-453d-bcfb-2d217c3c1b5e",
+              "name": "Page object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2453,\n  \"date\": \"1957-05-15T19:49:12.716Z\",\n  \"date_gmt\": \"2022-09-12T03:26:10.751Z\",\n  \"guid\": {\n    \"rendered\": \"string\"\n  },\n  \"modified\": \"1961-06-23T09:40:03.718Z\",\n  \"slug\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"page\",\n  \"link\": \"http://IZfGSlCAQNfVsOuKYiUXFfxlgScvoVZin.tahxDgYlz0HeI6817noFSqJ2jadQ1prLMaP2Ec\",\n  \"title\": {\n    \"rendered\": \"string\"\n  },\n  \"content\": {\n    \"rendered\": \"string\",\n    \"protected\": true\n  },\n  \"excerpt\": {\n    \"rendered\": \"string\",\n    \"protected\": false\n  },\n  \"author\": 7587,\n  \"featured_media\": 3348,\n  \"menu_order\": 2787,\n  \"template\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61c58464-4e0d-4dc7-81ba-609aa588d158",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pages",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 8801\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://techcrunch.com/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "81bfad8e-6cb3-4a83-9cc2-366fbda6b1dd",
+    "name": "TechCrunch WordPress REST Authors Pages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.\n\nContact Support:\n Name: TechCrunch",
+      "type": "text/plain"
+    }
+  }
+}

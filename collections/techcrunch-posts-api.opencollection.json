@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TechCrunch WordPress REST Authors Posts API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Posts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/posts",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to be returned in result set."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to those matching a string."
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Limit response to posts published after a given ISO8601 date."
+              },
+              {
+                "name": "before",
+                "value": "",
+                "type": "query",
+                "description": "Limit response to posts published before a given ISO8601 date."
+              },
+              {
+                "name": "author",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to posts assigned to specific authors."
+              },
+              {
+                "name": "categories",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to posts assigned to specific category IDs."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to posts assigned to specific tag IDs."
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query",
+                "description": "Sort collection by object attribute."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query",
+                "description": "Order sort attribute ascending or descending."
+              },
+              {
+                "name": "_fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit response to specific fields. Separate multiple fields with commas."
+              },
+              {
+                "name": "_embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed linked resources in the response."
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of published posts from TechCrunch. Supports filtering by author, category, tag, date range, and full-text search."
+        },
+        {
+          "info": {
+            "name": "Get Post",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/posts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              },
+              {
+                "name": "_fields",
+                "value": "",
+                "type": "query",
+                "description": "Limit response to specific fields."
+              },
+              {
+                "name": "_embed",
+                "value": "",
+                "type": "query",
+                "description": "Embed linked resources."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific published post by its unique ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

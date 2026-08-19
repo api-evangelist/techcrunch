@@ -1,0 +1,301 @@
+{
+  "item": [
+    {
+      "id": "15ceb90d-c4ca-427c-9ffe-16ce0ac63ff2",
+      "name": "Media",
+      "description": {
+        "content": "Media files and attachments",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aebed1ac-dc82-4391-a102-03664ed34816",
+          "name": "List Media",
+          "request": {
+            "name": "List Media",
+            "description": {
+              "content": "Retrieve a list of media items attached to TechCrunch posts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "media_type",
+                  "value": "<string>",
+                  "description": "Limit result set to attachments of a given media type."
+                },
+                {
+                  "disabled": false,
+                  "key": "mime_type",
+                  "value": "<string>",
+                  "description": "Limit result set to attachments of a given MIME type."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d87ad47-99f8-4bc9-87b1-daf453c247e1",
+              "name": "List of media items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "media_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mime_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4960,\n    \"date\": \"2010-04-18T08:36:48.319Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"attachment\",\n    \"link\": \"http://hPTguRDt.nrX7vA+fyi9lsY9o9WN9wUytaQFAHR0id3,np+BY5IMZuhotvoY4vD9qmq66NYmWGD,onSj\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"author\": 5340,\n    \"caption\": {\n      \"rendered\": \"string\"\n    },\n    \"alt_text\": \"string\",\n    \"media_type\": \"file\",\n    \"mime_type\": \"string\",\n    \"media_details\": {\n      \"key_0\": \"string\",\n      \"key_1\": 4939.096024548808\n    },\n    \"source_url\": \"https://oJONnDSQHIosFX.mvusVVkpW-dD5xlRTfYoTMLiK+0DaJ.gZxADpjg+\"\n  },\n  {\n    \"id\": 6251,\n    \"date\": \"1957-09-06T16:10:42.956Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"attachment\",\n    \"link\": \"https://XMibDOHrlvfY.wtNyLQaCvY+eMytt3zqjLR6L9pMcZl1TCGmi\",\n    \"title\": {\n      \"rendered\": \"string\"\n    },\n    \"author\": 5833,\n    \"caption\": {\n      \"rendered\": \"string\"\n    },\n    \"alt_text\": \"string\",\n    \"media_type\": \"file\",\n    \"mime_type\": \"string\",\n    \"media_details\": {\n      \"key_0\": 6024,\n      \"key_1\": 5609.7872201045575\n    },\n    \"source_url\": \"https://GLFuQBhhGzMaYVQZoZNZKcjnuoKjtdfQJ.cptYBw9HrC+9fl,MP,dDLrQpDjyY-Ovd8ZcQOk1NGei3+Hp5Fw2R\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3cf3b8c6-df8f-4eee-abbb-512ca6339c19",
+          "name": "Get Media Item",
+          "request": {
+            "name": "Get Media Item",
+            "description": {
+              "content": "Retrieve a specific media item by its unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "media",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4548110e-1e40-4975-b557-5368f150a08a",
+              "name": "Media item object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4714,\n  \"date\": \"1953-11-07T23:24:21.145Z\",\n  \"slug\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"attachment\",\n  \"link\": \"http://iqxMJeXFLy.imubs4W24A4gC7iaDWBLrwdokE,i68Zj6XHWKl2N,TUp.vE\",\n  \"title\": {\n    \"rendered\": \"string\"\n  },\n  \"author\": 4096,\n  \"caption\": {\n    \"rendered\": \"string\"\n  },\n  \"alt_text\": \"string\",\n  \"media_type\": \"image\",\n  \"mime_type\": \"string\",\n  \"media_details\": {\n    \"key_0\": 1225,\n    \"key_1\": \"string\"\n  },\n  \"source_url\": \"https://auudCB.bcvD7UTJ9ER\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d9a3be3-0485-45f4-8bb2-3a5b473dfa4d",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 9934\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://techcrunch.com/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e70157fc-939b-4e2f-8eae-5ba64539631b",
+    "name": "TechCrunch WordPress REST Authors Media API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.\n\nContact Support:\n Name: TechCrunch",
+      "type": "text/plain"
+    }
+  }
+}

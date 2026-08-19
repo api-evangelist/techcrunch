@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "TechCrunch WordPress REST Authors Search API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://techcrunch.com/wp-json/wp/v2/search",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to those matching a string."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to items of an object type."
+              },
+              {
+                "name": "subtype",
+                "value": "",
+                "type": "query",
+                "description": "Limit result set to items with a given object subtype."
+              }
+            ]
+          },
+          "docs": "Search across all TechCrunch content including posts, pages, and other content types using full-text search."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

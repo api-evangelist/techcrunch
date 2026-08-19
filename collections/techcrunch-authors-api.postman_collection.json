@@ -1,0 +1,291 @@
+{
+  "item": [
+    {
+      "id": "1d5dbbda-4745-4d13-b9ea-5ffd0220fe44",
+      "name": "Authors",
+      "description": {
+        "content": "Author and contributor profiles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "80ecfcce-96b0-4616-9013-48eabcdde8b2",
+          "name": "List Authors",
+          "request": {
+            "name": "List Authors",
+            "description": {
+              "content": "Retrieve a list of registered authors and contributors on TechCrunch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "name"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "asc"
+                },
+                {
+                  "disabled": false,
+                  "key": "who",
+                  "value": "<string>",
+                  "description": "Limit result set to users who are considered authors."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cafeb40c-c3c5-47ad-9ac2-aa6ef5ed91b5",
+              "name": "List of authors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "name"
+                    },
+                    {
+                      "key": "order",
+                      "value": "asc"
+                    },
+                    {
+                      "key": "who",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3520,\n    \"name\": \"string\",\n    \"url\": \"https://cESQBsRDENzjREltPCRKMPga.mxvmo011DsNhZo\",\n    \"description\": \"string\",\n    \"link\": \"https://QgcbQeRIVWpdX.ypazbpRV5lsBktP,VRaIEzWLG7WSF-oixZTPf79,rFkN+d0kzJ0LKlR3LfwO,Ufpl\",\n    \"slug\": \"string\",\n    \"avatar_urls\": {\n      \"key_0\": \"http://UPctmKZZmJoHyfBizftwOIKkjcmxNLGjQ.xzxxFRPEAUCvZS+\"\n    }\n  },\n  {\n    \"id\": 5327,\n    \"name\": \"string\",\n    \"url\": \"https://mvGdoDwvul.ffdnopJLF-ws4Fzoo-Xk72k9YX-Pr7blS9aghS.0FXXZxGNRXNXpJ+5ciQz4Zu+PtFbsl1QUug9jEOVUXCM\",\n    \"description\": \"string\",\n    \"link\": \"https://qcsDbpauDsuHFX.aaijNUxZ\",\n    \"slug\": \"string\",\n    \"avatar_urls\": {\n      \"key_0\": \"https://mUTnnlzKjlcoZYO.nkep-NF,Cscb4IxTuR7OG1xs5u.rVPJf8Gg\",\n      \"key_1\": \"https://hTCQKuyJ.tzcHkP0XKT1kuGNNXNAlDnp4QlSXal4Hd-F7U8+ZTH7AT-IcE9fU\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4190a52-85c3-484a-b2ce-0a74a297845e",
+          "name": "Get Author",
+          "request": {
+            "name": "Get Author",
+            "description": {
+              "content": "Retrieve a specific author by their unique ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9c60d41-7bf6-438f-bf00-faed70cedb27",
+              "name": "Author object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7628,\n  \"name\": \"string\",\n  \"url\": \"http://cHCs.dfPFN0mK2nkISjh0odZkGYj68SvTAWNwmgHQMre2aynZYYNbRqgT\",\n  \"description\": \"string\",\n  \"link\": \"https://jNvxKuyIQaaWFenPJKiwmMTCjB.ftimW.cMyyWB-u\",\n  \"slug\": \"string\",\n  \"avatar_urls\": {\n    \"key_0\": \"https://EllyopJvXS.sfdewBkhLe9yFHbyi6ynmV,4Vqkmv1EcW3QEBl,9\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "383c3ef7-cf39-4436-bd19-eef48f1ef7b2",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"message\": \"string\",\n  \"data\": {\n    \"status\": 5709\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://techcrunch.com/wp-json/wp/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "978e9f5f-cd01-444c-957e-27299d642ceb",
+    "name": "TechCrunch WordPress REST Authors API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, categories, tags, authors, pages, and other content types. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery.\n\nContact Support:\n Name: TechCrunch",
+      "type": "text/plain"
+    }
+  }
+}
