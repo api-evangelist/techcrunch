@@ -233,6 +233,11 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml
 common:
+  - type: ParentCompany
+    url: https://apis.io/providers/aol/
+    name: AOL
+    x-relationship: acquired
+    x-evidence: "Founded in 2005 and acquired by AOL in 2010 and later by Yahoo, TechCrunch delivers breaking news, in-depth analysis, and original reporting on the technology industry, emerging companies, funding rounds, and the people shaping the future o"
   - type: AgenticAccess
     url: agentic-access/techcrunch-agentic-access.yml
   - type: DomainSecurity
