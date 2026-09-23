@@ -1,14 +1,7 @@
 {
   "provider": "techcrunch",
   "sources": [
-    "techcrunch-authors-api-openapi.yml",
-    "techcrunch-categories-api-openapi.yml",
-    "techcrunch-comments-api-openapi.yml",
-    "techcrunch-media-api-openapi.yml",
-    "techcrunch-pages-api-openapi.yml",
-    "techcrunch-posts-api-openapi.yml",
-    "techcrunch-search-api-openapi.yml",
-    "techcrunch-tags-api-openapi.yml"
+    "_original/techcrunch-wordpress-rest-api-openapi.yml"
   ],
   "outputs": [
     "techcrunch-authors-api-openapi.yml",
@@ -23,6 +16,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "techcrunch-wordpress-rest-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "techcrunch-authors-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "techcrunch-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "techcrunch-comments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "techcrunch-media-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "techcrunch-pages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "techcrunch-posts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "techcrunch-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "techcrunch-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
