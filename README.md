@@ -1,4 +1,4 @@
-# TechCrunch (techcrunch)
+# TechCrunch
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,93 +66,162 @@
 
 TechCrunch (https://techcrunch.com/) is a leading technology media property dedicated to covering startups, venture capital, and innovation. Founded in 2005 and acquired by AOL in 2010 and later by Yahoo, TechCrunch delivers breaking news, in-depth analysis, and original reporting on the technology industry, emerging companies, funding rounds, and the people shaping the future of tech. The publication hosts flagship events including TechCrunch Disrupt and the Startup Battlefield competition. TechCrunch runs on WordPress and exposes the standard WordPress REST API for programmatic content access.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/apis.yml)
+**Areas:** Media · News · Startups · Technology News · Venture Capital
 
-## Scope
+## TechCrunch on APIs.io
 
-- **Type:** Index
+Everything profiled for TechCrunch is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/techcrunch/](https://apis.io/providers/techcrunch/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- Media
-- News
-- Startups
-- Technology News
-- Venture Capital
+- [TechCrunch RSS Feed](https://apis.io/apis/techcrunch/rss-feed/) — TechCrunch provides RSS feeds covering its full range of technology news, startup coverage, and venture capital reporting. The main feed delivers all…
+- [TechCrunch Website (WordPress REST)](https://apis.io/apis/techcrunch/techcrunch-com-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the TechCrunch website at techcrunch.com: the route index of the site's content management system, catalogued as…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-24
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### TechCrunch WordPress REST API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-TechCrunch is built on WordPress and exposes the standard WordPress REST API, providing JSON endpoints for accessing posts, pages, categories, tags, authors, media, comments, and search. The API is available at the /wp-json/wp/v2/ base path and supports filtering, pagination, searching, and sorting across all TechCrunch content. TechCrunch uses a headless WordPress architecture with a React frontend, making the REST API the primary data layer for content delivery. No authentication is required for read operations.
+- [Techcrunch Agentic Access](https://apis.io/agentic-access/techcrunch/techcrunch-agentic-access/)
 
-- **Human URL:** [https://developer.wordpress.org/rest-api/](https://developer.wordpress.org/rest-api/)
-- **Base URL:** `https://techcrunch.com/wp-json/wp/v2`
+#### JSON Schema (2)
 
-#### Tags
+The data models the API reads and writes.
 
-- Content
-- JSON
-- Media
-- REST
-- WordPress
+- [TechCrunch Category](https://apis.io/schemas/techcrunch/techcrunch-category/)
+- [TechCrunch Post](https://apis.io/schemas/techcrunch/techcrunch-post/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://developer.wordpress.org/rest-api/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/openapi/techcrunch-wordpress-rest-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-schema/techcrunch-post-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Naftiko P Capabilities](https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/capabilities/content-discovery.yaml)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/rules/techcrunch-wordpress-rules.yml)
-- [Postman Collection](collections/techcrunch-wordpress-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/techcrunch-wordpress-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### TechCrunch RSS Feed
+- [Techcrunch Post Structure](https://apis.io/json-structure/techcrunch/techcrunch-post-structure/)
 
-TechCrunch provides RSS feeds covering its full range of technology news, startup coverage, and venture capital reporting. The main feed delivers all published articles, and category-specific feeds are available for topics including startups, venture capital, artificial intelligence, security, apps, gadgets, and more. These standard RSS/Atom feeds allow readers and developers to consume TechCrunch content programmatically using any standard feed reader or parsing library.
+#### JSON-LD (1)
 
-- **Human URL:** [https://techcrunch.com/feed/](https://techcrunch.com/feed/)
-- **Base URL:** `https://techcrunch.com`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Techcrunch Context](https://apis.io/jsonld/techcrunch/techcrunch-context/)
 
-- Feed
-- News
-- RSS
-- Syndication
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://techcrunch.com/feed/)
-- [R S S Feed](https://techcrunch.com/feed/)
-- [Postman Collection](collections/techcrunch-wordpress-rest-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/techcrunch-wordpress-rest-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [TechCrunch Vocabulary](https://apis.io/vocabularies/techcrunch/techcrunch-vocabulary/)
 
-## Common Properties
+#### Examples (2)
 
-- [GitHub Organization](https://github.com/techcrunch)
+Example requests and responses.
+
+- [Techcrunch List Posts Example](https://apis.io/examples/techcrunch/techcrunch-list-posts-example/)
+- [Techcrunch Search Example](https://apis.io/examples/techcrunch/techcrunch-search-example/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [Moved to /providers/techcrunch/](https://apis.io/collections/techcrunch/open-techcrunch-authors-api/)
+- [Moved to /providers/techcrunch/](https://apis.io/collections/techcrunch/open-techcrunch-categories-api/)
+- [Moved to /providers/techcrunch/](https://apis.io/collections/techcrunch/open-techcrunch-comments-api/)
+- [Moved to /providers/techcrunch/](https://apis.io/collections/techcrunch/open-techcrunch-media-api/)
+- [Moved to /providers/techcrunch/](https://apis.io/collections/techcrunch/open-techcrunch-pages-api/)
+- [Moved to /providers/techcrunch/](https://apis.io/collections/techcrunch/open-techcrunch-posts-api/)
+- [Moved to /providers/techcrunch/](https://apis.io/collections/techcrunch/open-techcrunch-search-api/)
+- [Moved to /providers/techcrunch/](https://apis.io/collections/techcrunch/open-techcrunch-tags-api/)
+- [TechCrunch WordPress REST API](https://apis.io/collections/techcrunch/open-techcrunch-wordpress-rest-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [TechCrunch — jsonschema rules](https://apis.io/rules/techcrunch/techcrunch-jsonschema-spectral-rules/)
+- [TechCrunch — wordpress rules](https://apis.io/rules/techcrunch/techcrunch-wordpress-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Techcrunch Domain Security](https://apis.io/security/techcrunch/techcrunch-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Techcrunch Plans Pricing](https://apis.io/plans/techcrunch/techcrunch-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Techcrunch Rate Limits](https://apis.io/rate-limits/techcrunch/techcrunch-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Techcrunch Finops](https://apis.io/finops/techcrunch/techcrunch-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://techcrunch.com/)
-- [About](https://techcrunch.com/about-techcrunch/)
-- [Newsletter](https://techcrunch.com/newsletters/)
-- [R S S Feeds](https://techcrunch.com/feed/)
-- [Advertising](https://techcrunch.com/advertise/)
-- [Contact](https://techcrunch.com/contact-us/)
-- [Terms of Service](https://techcrunch.com/terms-of-service/)
-- [Privacy Policy](https://techcrunch.com/privacy-policy/)
-- [X (Twitter)](https://x.com/TechCrunch)
-- [LinkedIn](https://www.linkedin.com/company/techcrunch/)
-- [Facebook](https://www.facebook.com/techcrunch/)
-- [Instagram](https://www.instagram.com/techcrunch/)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/vocabulary/techcrunch-vocabulary.yml)
-- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/techcrunch/refs/heads/main/json-ld/techcrunch-context.jsonld)
-- [Integrations](https://techcrunch.com/category/apps/)
+- [Terms of service](https://techcrunch.com/terms-of-service/)
+- [Privacy policy](https://techcrunch.com/privacy-policy/)
+- [GitHub](https://github.com/techcrunch)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 20.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 10.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 28.9 |
+
+**Agent readiness 2.4** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 18.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/techcrunch/](https://apis.io/providers/techcrunch/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for TechCrunch: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/techcrunch/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
